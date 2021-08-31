@@ -94,14 +94,26 @@ class Character extends FlxSprite
 				flipX = true;
 
 			case 'madeline':
-				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('madi_sprite_fun','shared',true);
+				tex = Paths.getSparrowAtlas('madi_sprite','shared',true);
 				frames = tex;
 				animation.addByPrefix('idle', 'madi idle', 24, false);
 				animation.addByPrefix('singUP', 'madi up', 24, false);
 				animation.addByPrefix('singRIGHT', 'madi right', 24, false);
 				animation.addByPrefix('singDOWN', 'madi down', 24, false);
 				animation.addByPrefix('singLEFT', 'madi left', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+			
+			case 'badeline':
+				tex = Paths.getSparrowAtlas('badi_sprite','shared',true);
+				frames = tex;
+				animation.addByPrefix('idle', 'badi idle', 24, false);
+				animation.addByPrefix('singUP', 'badi up', 24, false);
+				animation.addByPrefix('singRIGHT', 'badi right', 24, false);
+				animation.addByPrefix('singDOWN', 'badi down', 24, false);
+				animation.addByPrefix('singLEFT', 'badi left', 24, false);
 
 				loadOffsetFile(curCharacter);
 

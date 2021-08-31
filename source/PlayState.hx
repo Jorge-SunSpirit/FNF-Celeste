@@ -138,6 +138,7 @@ class PlayState extends MusicBeatState
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	private var floatshit:Float = 0;
 
 	public var notes:FlxTypedGroup<Note>;
 
@@ -609,6 +610,8 @@ class PlayState extends MusicBeatState
 
 				case "madeline":
 					dad.y += 0;
+				case "badeline":
+					dad.y += 0;
 				case 'dad':
 					camPos.x += 400;
 			}
@@ -618,12 +621,19 @@ class PlayState extends MusicBeatState
 				switch (Stage.curStage)
 				{
 					case 'celeste':
-						boyfriend.x = 721;
-						boyfriend.y = 362;
+						boyfriend.x = 757;
+						boyfriend.y = 366;
 						dad.x = -70;
 						dad.y = 202;
-						gf.x = 215;
-						gf.y = -8;
+						gf.x = 338;
+						gf.y = 37;
+					case 'celestedream':
+						boyfriend.x = 757;
+						boyfriend.y = 366;
+						dad.x = 4;
+						dad.y = 40;
+						gf.x = 338;
+						gf.y = 37;
 				}
 		}
 		else
@@ -874,7 +884,9 @@ class PlayState extends MusicBeatState
          switch (SONG.player2)
            {
              case 'madeline':
-              healthBar.createFilledBar(0xFFEA496A, 0xFF0097C4);
+             	healthBar.createFilledBar(0xFFEA496A, 0xFF0097C4);
+			  case 'badeline':
+				healthBar.createFilledBar(0xFF732762, 0xFF0097C4);
             }
         }
         else
@@ -2004,7 +2016,11 @@ class PlayState extends MusicBeatState
 		perfectMode = false;
 		#end
 
-
+		floatshit += 0.03;
+		if (dad.curCharacter == "badeline")
+			{
+            dad.y += Math.sin(floatshit);
+       		}
 		if (unspawnNotes[0] != null)
 			{
 	
@@ -2638,6 +2654,8 @@ class PlayState extends MusicBeatState
 				switch (dad.curCharacter)
 				{
 					case 'madeline':
+						camFollow.y = dad.getMidpoint().y - 20;
+					case 'badeline':
 						camFollow.y = dad.getMidpoint().y - 20;
 					case 'mom' | 'mom-car':
 						camFollow.y = dad.getMidpoint().y;
