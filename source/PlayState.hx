@@ -625,15 +625,15 @@ class PlayState extends MusicBeatState
 						boyfriend.y = 366;
 						dad.x = -70;
 						dad.y = 202;
-						gf.x = 338;
-						gf.y = 37;
+						gf.x = 475;
+						gf.y = 174;
 					case 'celestedream':
 						boyfriend.x = 757;
 						boyfriend.y = 366;
 						dad.x = 4;
 						dad.y = 40;
-						gf.x = 338;
-						gf.y = 37;
+						gf.x = 475;
+						gf.y = 174;
 				}
 		}
 		else

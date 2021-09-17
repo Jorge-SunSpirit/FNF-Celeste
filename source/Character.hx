@@ -50,6 +50,26 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
+			case 'gf_snow':
+				// GIRLFRIEND CODE
+				tex = Paths.getSparrowAtlas('GF_snow_assets','shared',true);
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('danceRight');
+
 
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
@@ -66,6 +86,34 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('BOYFRIEND','shared',true);
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+				animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+
+				animation.addByPrefix('scared', 'BF idle shaking', 24);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+				flipX = true;
+			case 'bf_snow':
+				var tex = Paths.getSparrowAtlas('BOYFRIEND_Snow','shared',true);
 				frames = tex;
 
 				trace(tex.frames.length);
@@ -172,11 +220,11 @@ class Character extends FlxSprite
 
 			if (curCharacter == 'dad')
 				dadVar = 6.1;
-			else if (curCharacter == 'gf')
+			else if (curCharacter == 'gf' || curCharacter == 'gf_snow')
 				dadVar = 4.1; //fix double dances
 			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
 			{
-				if (curCharacter == 'gf')
+				if (curCharacter == 'gf' || curCharacter == 'gf_snow')
 					playAnim('danceLeft'); //overridden by dance correctly later
 				dance();
 				holdTimer = 0;
@@ -185,7 +233,7 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-			case 'gf':
+			case 'gf' | 'gf_snow':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 				{
 					danced = true;
@@ -207,7 +255,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf':
+				case 'gf' | 'gf_snow':
 					if (!animation.curAnim.name.startsWith('hair') && !animation.curAnim.name.startsWith('sing'))
 					{
 						danced = !danced;
@@ -254,7 +302,7 @@ class Character extends FlxSprite
 		else
 			offset.set(0, 0);
 
-		if (curCharacter == 'gf')
+		if (curCharacter == 'gf' || curCharacter == 'gf_snow')
 		{
 			if (AnimName == 'singLEFT')
 			{
