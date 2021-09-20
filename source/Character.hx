@@ -166,6 +166,19 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
+			
+			case 'pinkeline':
+				tex = Paths.getSparrowAtlas('pinkeline','shared',true);
+				frames = tex;
+				animation.addByPrefix('idle', 'madi idle', 24, false);
+				animation.addByPrefix('singUP', 'madi up', 24, false);
+				animation.addByPrefix('singRIGHT', 'madi right', 24, false);
+				animation.addByPrefix('singDOWN', 'madi down', 24, false);
+				animation.addByPrefix('singLEFT', 'madi left', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
 		}
 
 		dance();

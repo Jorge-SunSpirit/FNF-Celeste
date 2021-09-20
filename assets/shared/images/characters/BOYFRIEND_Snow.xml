@@ -428,56 +428,58 @@
 	<SubTexture name="BF hit0016" x="938" y="2399" width="454" height="443"/>
 	<SubTexture name="BF hit0017" x="1402" y="2399" width="454" height="443"/>
 	<SubTexture name="BF hit0018" x="938" y="2399" width="454" height="443"/>
-	<SubTexture name="BF idle dance0000" x="1866" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0001" x="1866" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0002" x="2303" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0003" x="2303" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0004" x="2740" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0005" x="2740" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0006" x="3177" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0007" x="3177" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0008" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0009" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0010" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0011" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0012" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle dance0013" x="3614" y="2399" width="427" height="419"/>
-	<SubTexture name="BF idle shaking0000" x="4051" y="2399" width="413" height="413"/>
-	<SubTexture name="BF idle shaking0001" x="4474" y="2399" width="413" height="413"/>
-	<SubTexture name="BF idle shaking0002" x="4897" y="2399" width="413" height="413"/>
-	<SubTexture name="BF idle shaking0003" x="5320" y="2399" width="413" height="413"/>
-	<SubTexture name="bf pre attack0000" x="5743" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0001" x="5743" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0002" x="6140" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0003" x="6140" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0004" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0005" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0006" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0007" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0008" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0009" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0010" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0011" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0012" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0013" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0014" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0015" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0016" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0017" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0018" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0019" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0020" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0021" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0022" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0023" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0024" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0025" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0026" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0027" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0028" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="bf pre attack0029" x="6537" y="2399" width="387" height="381"/>
-	<SubTexture name="boyfriend attack0000" x="6934" y="2399" width="708" height="685"/>
-	<SubTexture name="boyfriend attack0001" x="6934" y="2399" width="708" height="685"/>
+	<SubTexture name="BF idle dance0000" x="1866" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0001" x="1866" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0002" x="2306" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0003" x="2306" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0004" x="2746" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0005" x="2746" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0006" x="2746" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0007" x="3186" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0008" x="3186" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0009" x="3186" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0010" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0011" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0012" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0013" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0014" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle dance0015" x="3626" y="2399" width="430" height="419"/>
+	<SubTexture name="BF idle shaking0000" x="4066" y="2399" width="413" height="413"/>
+	<SubTexture name="BF idle shaking0001" x="4489" y="2399" width="413" height="413"/>
+	<SubTexture name="BF idle shaking0002" x="4912" y="2399" width="413" height="413"/>
+	<SubTexture name="BF idle shaking0003" x="5335" y="2399" width="413" height="413"/>
+	<SubTexture name="bf pre attack0000" x="5758" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0001" x="5758" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0002" x="6155" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0003" x="6155" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0004" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0005" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0006" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0007" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0008" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0009" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0010" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0011" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0012" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0013" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0014" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0015" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0016" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0017" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0018" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0019" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0020" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0021" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0022" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0023" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0024" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0025" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0026" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0027" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0028" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="bf pre attack0029" x="6552" y="2399" width="387" height="381"/>
+	<SubTexture name="boyfriend attack0000" x="6949" y="2399" width="708" height="685"/>
+	<SubTexture name="boyfriend attack0001" x="6949" y="2399" width="708" height="685"/>
 	<SubTexture name="boyfriend attack0002" x="10" y="3094" width="708" height="685"/>
 	<SubTexture name="boyfriend attack0003" x="10" y="3094" width="708" height="685"/>
 	<SubTexture name="boyfriend attack0004" x="728" y="3094" width="708" height="685"/>

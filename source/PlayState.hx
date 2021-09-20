@@ -597,25 +597,6 @@ class PlayState extends MusicBeatState
 
 			camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
-			switch (dad.curCharacter)
-			{
-				case 'gf':
-					dad.setPosition(gf.x, gf.y);
-					gf.visible = false;
-					if (isStoryMode)
-					{
-						camPos.x += 600;
-						tweenCamIn();
-					}
-
-				case "madeline":
-					dad.y += 0;
-				case "badeline":
-					dad.y += 0;
-				case 'dad':
-					camPos.x += 400;
-			}
-
 			// REPOSITIONING PER STAGE
 			if (!PlayStateChangeables.Optimize)
 				switch (Stage.curStage)
@@ -631,10 +612,45 @@ class PlayState extends MusicBeatState
 						boyfriend.x = 757;
 						boyfriend.y = 366;
 						dad.x = 4;
-						dad.y = 40;
+						dad.y = 202;
 						gf.x = 475;
 						gf.y = 174;
+					case 'reflection':
+						boyfriend.x = 810;
+						boyfriend.y = 366;
+						dad.x = -70;
+						dad.y = 202;
+						gf.x = 452;
+						gf.y = 222;
+					case 'forsaken':
+						boyfriend.x = 1424;
+						boyfriend.y = 643;
+						dad.x = 337;
+						dad.y = 469;
+						gf.x = 1011;
+						gf.y = 377;
 				}
+
+			switch (dad.curCharacter)
+			{
+				case 'gf':
+					dad.setPosition(gf.x, gf.y);
+					gf.visible = false;
+					if (isStoryMode)
+					{
+						camPos.x += 600;
+						tweenCamIn();
+					}
+
+				case "madeline":
+					dad.y += 0;
+				case "badeline":
+					dad.y -= 160;
+				case "pinkeline":
+					dad.y += 0;
+				case 'dad':
+					camPos.x += 400;
+			}
 		}
 		else
 		{
@@ -673,28 +689,8 @@ class PlayState extends MusicBeatState
 						camPos.x += 600;
 						tweenCamIn();
 					}
-				case 'dad':
-					camPos.x += 400;
-				case 'pico':
-					camPos.x += 600;
-				case 'senpai':
-					camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
-				case 'senpai-angry':
-					camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
-				case 'spirit':
-					if (FlxG.save.data.distractions)
-					{
-						// trailArea.scrollFactor.set();
-						if (!PlayStateChangeables.Optimize)
-						{
-							var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-							// evilTrail.changeValuesEnabled(false, false, false, false);
-							// evilTrail.changeGraphic()
-							add(evilTrail);
-						}
-						// evilTrail.scrollFactor.set(1.1, 1.1);
-					}
-					camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				case 'madeline' | 'badeline' | 'pinkeline':
+					camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 			}
 		}
 
@@ -883,11 +879,13 @@ class PlayState extends MusicBeatState
         {
          switch (SONG.player2)
            {
-             case 'madeline':
-             	healthBar.createFilledBar(0xFFEA496A, 0xFF0097C4);
-			  case 'badeline':
-				healthBar.createFilledBar(0xFF732762, 0xFF0097C4);
-            }
+            	case 'madeline':
+             		healthBar.createFilledBar(0xFFEA496A, 0xFF0097C4);
+			  	case 'badeline':
+					healthBar.createFilledBar(0xFF732762, 0xFF0097C4);
+				case 'pinkeline':
+					healthBar.createFilledBar(0xFFFF77F3, 0xFF0097C4);
+        	}
         }
         else
          healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
@@ -2653,9 +2651,7 @@ class PlayState extends MusicBeatState
 
 				switch (dad.curCharacter)
 				{
-					case 'madeline':
-						camFollow.y = dad.getMidpoint().y - 20;
-					case 'badeline':
+					case 'madeline' | 'badeline' | 'pinkeline':
 						camFollow.y = dad.getMidpoint().y - 20;
 					case 'mom' | 'mom-car':
 						camFollow.y = dad.getMidpoint().y;
@@ -2688,16 +2684,15 @@ class PlayState extends MusicBeatState
 						case 'celeste':
 							camFollow.x = boyfriend.getMidpoint().x - 150;
 							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'limo':
-							camFollow.x = boyfriend.getMidpoint().x - 300;
-						case 'mall':
-							camFollow.y = boyfriend.getMidpoint().y - 200;
-						case 'school':
-							camFollow.x = boyfriend.getMidpoint().x - 200;
-							camFollow.y = boyfriend.getMidpoint().y - 200;
-						case 'schoolEvil':
-							camFollow.x = boyfriend.getMidpoint().x - 200;
-							camFollow.y = boyfriend.getMidpoint().y - 200;
+						case 'celestedream':
+							camFollow.x = boyfriend.getMidpoint().x - 150;
+							camFollow.y = boyfriend.getMidpoint().y - 100;
+						case 'forsaken':
+							camFollow.x = boyfriend.getMidpoint().x - 150;
+							camFollow.y = boyfriend.getMidpoint().y - 100;
+						case 'reflection':
+							camFollow.x = boyfriend.getMidpoint().x - 150;
+							camFollow.y = boyfriend.getMidpoint().y - 98;
 					}
 			}
 		}

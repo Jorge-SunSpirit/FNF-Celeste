@@ -34,179 +34,278 @@ class Stage
         switch(daStage)
         {
             case 'celeste':
-					{
-						camZoom = 0.8;
-						var scale = 1.3;
-						var posX = -286;
-						var posY = -165;
-						curStage = 'celeste';
-						/*
+				{
+					camZoom = 0.8;
+					var scale = 1.3;
+					var posX = -286;
+					var posY = -165;
+					curStage = 'celeste';
+					/*
 
-						var halloweenBG = new FlxSprite(-200, -100);
-						halloweenBG.frames = hallowTex;
-						halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
-						halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
-						halloweenBG.animation.play('idle');
-						halloweenBG.antialiasing = FlxG.save.data.antialiasing;
-						swagBacks['halloweenBG'] = halloweenBG;
-                        toAdd.push(halloweenBG);*/
+					var halloweenBG = new FlxSprite(-200, -100);
+					halloweenBG.frames = hallowTex;
+					halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
+					halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
+					halloweenBG.animation.play('idle');
+					halloweenBG.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['halloweenBG'] = halloweenBG;
+					toAdd.push(halloweenBG);*/
 
-						var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestesky', 'celeste'));
-						sky.setGraphicSize(Std.int(sky.width * scale));
-						sky.antialiasing = FlxG.save.data.antialiasing;
-						sky.scrollFactor.set(0.1, 0.1);
-						sky.active = false;
-						swagBacks['sky'] = sky;
-                        toAdd.push(sky);
+					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestesky', 'celeste'));
+					sky.setGraphicSize(Std.int(sky.width * scale));
+					sky.antialiasing = FlxG.save.data.antialiasing;
+					sky.scrollFactor.set(0.1, 0.1);
+					sky.active = false;
+					swagBacks['sky'] = sky;
+					toAdd.push(sky);
 
-						var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestebridge', 'celeste'));
-						bridge.setGraphicSize(Std.int(bridge.width * 1));
-						bridge.antialiasing = FlxG.save.data.antialiasing;
-						bridge.scrollFactor.set(0.3, 0.3);
-						bridge.active = false;
-						swagBacks['bridge'] = bridge;
-                        toAdd.push(bridge);
+					var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestebridge', 'celeste'));
+					bridge.setGraphicSize(Std.int(bridge.width * 1));
+					bridge.antialiasing = FlxG.save.data.antialiasing;
+					bridge.scrollFactor.set(0.3, 0.3);
+					bridge.active = false;
+					swagBacks['bridge'] = bridge;
+					toAdd.push(bridge);
 
-						var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestecity', 'celeste'));
-						city.setGraphicSize(Std.int(city.width * 1));
-						city.antialiasing = FlxG.save.data.antialiasing;
-						city.scrollFactor.set(0.35, 0.35);
-						city.active = false;
-						swagBacks['city'] = city;
-                        toAdd.push(city);
+					var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestecity', 'celeste'));
+					city.setGraphicSize(Std.int(city.width * 1));
+					city.antialiasing = FlxG.save.data.antialiasing;
+					city.scrollFactor.set(0.35, 0.35);
+					city.active = false;
+					swagBacks['city'] = city;
+					toAdd.push(city);
 
-						var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestetrees', 'celeste'));
-						trees.setGraphicSize(Std.int(trees.width * scale));
-						trees.antialiasing = FlxG.save.data.antialiasing;
-						trees.scrollFactor.set(0.85, 0.9);
-						trees.active = false;
-						swagBacks['trees'] = trees;
-                        toAdd.push(trees);
+					var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestetrees', 'celeste'));
+					trees.setGraphicSize(Std.int(trees.width * scale));
+					trees.antialiasing = FlxG.save.data.antialiasing;
+					trees.scrollFactor.set(0.85, 0.9);
+					trees.active = false;
+					swagBacks['trees'] = trees;
+					toAdd.push(trees);
 
-						var floorback:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestefloorback', 'celeste'));
-						floorback.setGraphicSize(Std.int(floorback.width * scale));
-						floorback.antialiasing = FlxG.save.data.antialiasing;
-						floorback.scrollFactor.set(0.85, 0.9);
-						floorback.active = false;
-						swagBacks['floorback'] = floorback;
-                        toAdd.push(floorback);
+					var floorback:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestefloorback', 'celeste'));
+					floorback.setGraphicSize(Std.int(floorback.width * scale));
+					floorback.antialiasing = FlxG.save.data.antialiasing;
+					floorback.scrollFactor.set(0.85, 0.9);
+					floorback.active = false;
+					swagBacks['floorback'] = floorback;
+					toAdd.push(floorback);
 
-						var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stage/celestefloor', 'celeste'));
-						floor.setGraphicSize(Std.int(floor.width * scale));
-						floor.antialiasing = FlxG.save.data.antialiasing;
-						floor.scrollFactor.set(0.9, 0.9);
-						floor.active = false;
-						swagBacks['floor'] = floor;
-                        toAdd.push(floor);
+					var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stage/celestefloor', 'celeste'));
+					floor.setGraphicSize(Std.int(floor.width * scale));
+					floor.antialiasing = FlxG.save.data.antialiasing;
+					floor.scrollFactor.set(0.9, 0.9);
+					floor.active = false;
+					swagBacks['floor'] = floor;
+					toAdd.push(floor);
 
-						var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stage/celestegrave', 'celeste'));
-						grave.setGraphicSize(Std.int(floor.width * scale));
-						grave.antialiasing = FlxG.save.data.antialiasing;
-						grave.scrollFactor.set(1, 1);
-						grave.active = false;
-						swagBacks['grave'] = grave;
-                        toAdd.push(grave);
+					var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stage/celestegrave', 'celeste'));
+					grave.setGraphicSize(Std.int(floor.width * scale));
+					grave.antialiasing = FlxG.save.data.antialiasing;
+					grave.scrollFactor.set(1, 1);
+					grave.active = false;
+					swagBacks['grave'] = grave;
+					toAdd.push(grave);
 
 
-					}
+				}
 
-					case 'celestedream':
-						{
-							camZoom = 0.8;
-							var scale = 1.3;
-							var posX = -286;
-							var posY = -165;
-							curStage = 'celestedream';
-	
-							var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamsky', 'celeste'));
-							sky.setGraphicSize(Std.int(sky.width * scale));
-							sky.antialiasing = FlxG.save.data.antialiasing;
-							sky.scrollFactor.set(0.1, 0.1);
-							sky.active = false;
-							swagBacks['sky'] = sky;
-							toAdd.push(sky);
+			case 'celestedream':
+				{
+					camZoom = 0.8;
+					var scale = 1.3;
+					var posX = -286;
+					var posY = -165;
+					curStage = 'celestedream';
 
-							var stars:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamstars', 'celeste'));
-							stars.setGraphicSize(Std.int(stars.width * scale));
-							stars.antialiasing = FlxG.save.data.antialiasing;
-							stars.scrollFactor.set(0.1, 0.1);
-							stars.active = false;
-							swagBacks['stars'] = stars;
-							toAdd.push(stars);
-	
-							var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreambridge', 'celeste'));
-							bridge.setGraphicSize(Std.int(bridge.width * 1));
-							bridge.antialiasing = FlxG.save.data.antialiasing;
-							bridge.scrollFactor.set(0.3, 0.3);
-							bridge.active = false;
-							swagBacks['bridge'] = bridge;
-							toAdd.push(bridge);
-	
-							var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamcity', 'celeste'));
-							city.setGraphicSize(Std.int(city.width * 1));
-							city.antialiasing = FlxG.save.data.antialiasing;
-							city.scrollFactor.set(0.35, 0.35);
-							city.active = false;
-							swagBacks['city'] = city;
-							toAdd.push(city);
-	
-							var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamtrees', 'celeste'));
-							trees.setGraphicSize(Std.int(trees.width * scale));
-							trees.antialiasing = FlxG.save.data.antialiasing;
-							trees.scrollFactor.set(0.85, 0.9);
-							trees.active = false;
-							swagBacks['trees'] = trees;
-							toAdd.push(trees);
-	
-							var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stagedream/dreamfloor', 'celeste'));
-							floor.setGraphicSize(Std.int(floor.width * scale));
-							floor.antialiasing = FlxG.save.data.antialiasing;
-							floor.scrollFactor.set(0.9, 0.9);
-							floor.active = false;
-							swagBacks['floor'] = floor;
-							toAdd.push(floor);
-	
-							var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stagedream/dreamgrave', 'celeste'));
-							grave.setGraphicSize(Std.int(floor.width * scale));
-							grave.antialiasing = FlxG.save.data.antialiasing;
-							grave.scrollFactor.set(1, 1);
-							grave.active = false;
-							swagBacks['grave'] = grave;
-							toAdd.push(grave);
-	
-	
-						}
-				
-				default:
-					{
-						camZoom = 0.9;
-						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
-						bg.antialiasing = FlxG.save.data.antialiasing;
-						bg.scrollFactor.set(0.9, 0.9);
-						bg.active = false;
-						swagBacks['bg'] = bg;
-                        toAdd.push(bg);
+					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamsky', 'celeste'));
+					sky.setGraphicSize(Std.int(sky.width * scale));
+					sky.antialiasing = FlxG.save.data.antialiasing;
+					sky.scrollFactor.set(0.1, 0.1);
+					sky.active = false;
+					swagBacks['sky'] = sky;
+					toAdd.push(sky);
 
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-						stageFront.updateHitbox();
-						stageFront.antialiasing = FlxG.save.data.antialiasing;
-						stageFront.scrollFactor.set(0.9, 0.9);
-						stageFront.active = false;
-						swagBacks['stageFront'] = stageFront;
-                        toAdd.push(stageFront);
+					var stars:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamstars', 'celeste'));
+					stars.setGraphicSize(Std.int(stars.width * scale));
+					stars.antialiasing = FlxG.save.data.antialiasing;
+					stars.scrollFactor.set(0.1, 0.1);
+					stars.active = false;
+					swagBacks['stars'] = stars;
+					toAdd.push(stars);
 
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						stageCurtains.updateHitbox();
-						stageCurtains.antialiasing = FlxG.save.data.antialiasing;
-						stageCurtains.scrollFactor.set(1.3, 1.3);
-						stageCurtains.active = false;
+					var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreambridge', 'celeste'));
+					bridge.setGraphicSize(Std.int(bridge.width * 1));
+					bridge.antialiasing = FlxG.save.data.antialiasing;
+					bridge.scrollFactor.set(0.3, 0.3);
+					bridge.active = false;
+					swagBacks['bridge'] = bridge;
+					toAdd.push(bridge);
 
-						swagBacks['stageCurtains'] = stageCurtains;
-                        toAdd.push(stageCurtains);
-					}
+					var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamcity', 'celeste'));
+					city.setGraphicSize(Std.int(city.width * 1));
+					city.antialiasing = FlxG.save.data.antialiasing;
+					city.scrollFactor.set(0.35, 0.35);
+					city.active = false;
+					swagBacks['city'] = city;
+					toAdd.push(city);
+
+					var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamtrees', 'celeste'));
+					trees.setGraphicSize(Std.int(trees.width * scale));
+					trees.antialiasing = FlxG.save.data.antialiasing;
+					trees.scrollFactor.set(0.85, 0.9);
+					trees.active = false;
+					swagBacks['trees'] = trees;
+					toAdd.push(trees);
+
+					var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stagedream/dreamfloor', 'celeste'));
+					floor.setGraphicSize(Std.int(floor.width * scale));
+					floor.antialiasing = FlxG.save.data.antialiasing;
+					floor.scrollFactor.set(0.9, 0.9);
+					floor.active = false;
+					swagBacks['floor'] = floor;
+					toAdd.push(floor);
+
+					var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stagedream/dreamgrave', 'celeste'));
+					grave.setGraphicSize(Std.int(floor.width * scale));
+					grave.antialiasing = FlxG.save.data.antialiasing;
+					grave.scrollFactor.set(1, 1);
+					grave.active = false;
+					swagBacks['grave'] = grave;
+					toAdd.push(grave);
+
+
+				}
+			case 'reflection':
+				{
+					camZoom = 0.8;
+					var scale = 1.3;
+					var posX = -286;
+					var posY = -165;
+					curStage = 'reflection';
+
+					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionsky', 'celeste'));
+					sky.setGraphicSize(Std.int(sky.width * scale));
+					sky.antialiasing = FlxG.save.data.antialiasing;
+					sky.scrollFactor.set(0.1, 0.1);
+					sky.active = false;
+					swagBacks['sky'] = sky;
+					toAdd.push(sky);
+
+					var stars:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionstars', 'celeste'));
+					stars.setGraphicSize(Std.int(sky.width * scale));
+					stars.antialiasing = FlxG.save.data.antialiasing;
+					stars.scrollFactor.set(0.1, 0.1);
+					stars.active = false;
+					swagBacks['stars'] = stars;
+					toAdd.push(stars);
+
+					var inside:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectioninside', 'celeste'));
+					inside.setGraphicSize(Std.int(inside.width * scale));
+					inside.antialiasing = FlxG.save.data.antialiasing;
+					inside.scrollFactor.set(0.85, 0.9);
+					inside.active = false;
+					swagBacks['inside'] = inside;
+					toAdd.push(inside);
+
+					var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionground', 'celeste'));
+					ground.setGraphicSize(Std.int(ground.width * scale));
+					ground.antialiasing = FlxG.save.data.antialiasing;
+					ground.scrollFactor.set(0.9, 0.9);
+					ground.active = false;
+					swagBacks['ground'] = ground;
+					toAdd.push(ground);
+
+					var foreground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionforeground', 'celeste'));
+					foreground.setGraphicSize(Std.int(foreground.width * scale));
+					foreground.antialiasing = FlxG.save.data.antialiasing;
+					foreground.scrollFactor.set(1, 1);
+					foreground.active = false;
+					swagBacks['foreground'] = foreground;
+					layInFront[2].push(foreground);
+					toAdd.push(foreground);
+				}
+			
+			case 'forsaken':
+				{
+					camZoom = 0.65;
+					var scale = 1.3;
+					var posX = -286;
+					var posY = -165;
+					curStage = 'forsaken';
+
+					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakensky', 'celeste'));
+					sky.setGraphicSize(Std.int(sky.width * scale));
+					sky.antialiasing = FlxG.save.data.antialiasing;
+					sky.scrollFactor.set(0.1, 0.1);
+					sky.active = false;
+					swagBacks['sky'] = sky;
+					toAdd.push(sky);
+
+					var bridge:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage3/forsakenbridge', 'celeste'));
+					bridge.setGraphicSize(Std.int(bridge.width * scale));
+					bridge.antialiasing = FlxG.save.data.antialiasing;
+					bridge.scrollFactor.set(0.3, 0.3);
+					bridge.active = false;
+					swagBacks['bridge'] = bridge;
+					toAdd.push(bridge);
+
+					var mountains:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage3/forsakenmountains', 'celeste'));
+					mountains.setGraphicSize(Std.int(mountains.width * scale));
+					mountains.antialiasing = FlxG.save.data.antialiasing;
+					mountains.scrollFactor.set(0.3, 0.3);
+					mountains.active = false;
+					swagBacks['mountains'] = mountains;
+					toAdd.push(mountains);
+
+					var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakenfloor', 'celeste'));
+					ground.setGraphicSize(Std.int(ground.width * scale));
+					ground.antialiasing = FlxG.save.data.antialiasing;
+					ground.scrollFactor.set(0.9, 0.9);
+					ground.active = false;
+					swagBacks['ground'] = ground;
+					toAdd.push(ground);
+
+					var grave:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakengravestone', 'celeste'));
+					grave.setGraphicSize(Std.int(grave.width * scale));
+					grave.antialiasing = FlxG.save.data.antialiasing;
+					grave.scrollFactor.set(0.85, 0.9);
+					grave.active = false;
+					swagBacks['grave'] = grave;
+					toAdd.push(grave);
+
+				}
+			
+			default:
+				{
+					camZoom = 0.9;
+					curStage = 'stage';
+					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					stageCurtains.antialiasing = FlxG.save.data.antialiasing;
+					stageCurtains.scrollFactor.set(1.3, 1.3);
+					stageCurtains.active = false;
+
+					swagBacks['stageCurtains'] = stageCurtains;
+					toAdd.push(stageCurtains);
+				}
         }
     }
 }
