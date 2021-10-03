@@ -119,7 +119,7 @@ class StoryMenuState extends MusicBeatState
 		leftarrow.scale.set(0.35, 0.35);
 		leftarrow.updateHitbox();
 		leftarrow.frames = Paths.getSparrowAtlas('storymenu/arrows');
-		leftarrow.animation.addByPrefix('idle', 'arrow 1', 24, true);
+		leftarrow.animation.addByPrefix('idle', 'arrow 2', 24, true);
 		leftarrow.animation.play('idle');
 		add(leftarrow);
 
@@ -127,7 +127,7 @@ class StoryMenuState extends MusicBeatState
 		rightarrow.scale.set(0.35, 0.35);
 		rightarrow.updateHitbox();
 		rightarrow.frames = Paths.getSparrowAtlas('storymenu/arrows');
-		rightarrow.animation.addByPrefix('idle', 'arrow 2', 24, true);
+		rightarrow.animation.addByPrefix('idle', 'arrow 1', 24, true);
 		rightarrow.animation.play('idle');
 		add(rightarrow);
 
