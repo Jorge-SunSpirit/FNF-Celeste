@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arrows.png">
+	<!-- Created with Adobe Animate version 21.0.2.37893 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow 10000" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10001" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10002" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10003" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10004" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10005" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10006" x="193" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10007" x="193" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10008" x="376" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10009" x="376" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10010" x="559" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10011" x="559" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10012" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 10013" x="10" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20000" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20001" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20002" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20003" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20004" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20005" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20006" x="10" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20007" x="10" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20008" x="193" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20009" x="193" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20010" x="376" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20011" x="376" y="168" width="173" height="148"/>
+	<SubTexture name="arrow 20012" x="742" y="10" width="173" height="148"/>
+	<SubTexture name="arrow 20013" x="742" y="10" width="173" height="148"/>
+</TextureAtlas>
