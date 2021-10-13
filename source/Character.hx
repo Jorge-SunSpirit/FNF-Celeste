@@ -166,6 +166,18 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
+			case 'badeline-angy':
+				tex = Paths.getSparrowAtlas('badi_sprite_angy','shared',true);
+				frames = tex;
+				animation.addByPrefix('idle', 'badi idle angy', 24, false);
+				animation.addByPrefix('singUP', 'badi up angy', 24, false);
+				animation.addByPrefix('singRIGHT', 'badi right angy', 24, false);
+				animation.addByPrefix('singDOWN', 'badi down angy', 24, false);
+				animation.addByPrefix('singLEFT', 'badi left angy', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
 			
 			case 'pinkeline':
 				tex = Paths.getSparrowAtlas('pinkeline','shared',true);
@@ -175,6 +187,18 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'madi right', 24, false);
 				animation.addByPrefix('singDOWN', 'madi down', 24, false);
 				animation.addByPrefix('singLEFT', 'madi left', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+			case 'pinkeline-alt':
+				tex = Paths.getSparrowAtlas('pinkeline_alt','shared',true);
+				frames = tex;
+				animation.addByPrefix('idle', 'madi idle b', 24, false);
+				animation.addByPrefix('singUP', 'madi up b', 24, false);
+				animation.addByPrefix('singRIGHT', 'madi right b', 24, false);
+				animation.addByPrefix('singDOWN', 'madi down b', 24, false);
+				animation.addByPrefix('singLEFT', 'madi left b', 24, false);
 
 				loadOffsetFile(curCharacter);
 

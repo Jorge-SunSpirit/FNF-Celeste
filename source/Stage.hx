@@ -176,13 +176,13 @@ class Stage
 
 
 				}
-			case 'reflection':
+			case 'forsaken':
 				{
 					camZoom = 0.8;
 					var scale = 1.3;
 					var posX = -286;
 					var posY = -165;
-					curStage = 'reflection';
+					curStage = 'forsaken';
 
 					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionsky', 'celeste'));
 					sky.setGraphicSize(Std.int(sky.width * scale));
@@ -226,13 +226,13 @@ class Stage
 					toAdd.push(foreground);
 				}
 			
-			case 'forsaken':
+			case 'reflection':
 				{
 					camZoom = 0.65;
 					var scale = 1.3;
 					var posX = -286;
 					var posY = -165;
-					curStage = 'forsaken';
+					curStage = 'reflection';
 
 					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakensky', 'celeste'));
 					sky.setGraphicSize(Std.int(sky.width * scale));
@@ -273,6 +273,64 @@ class Stage
 					grave.active = false;
 					swagBacks['grave'] = grave;
 					toAdd.push(grave);
+
+				}
+
+			case 'golden':
+				{
+					camZoom = 0.8;
+					var scale = 1.3;
+					var posX = -286;
+					var posY = -165;
+					curStage = 'golden';
+
+					var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENsky', 'celeste'));
+					sky.setGraphicSize(Std.int(sky.width * scale));
+					sky.antialiasing = FlxG.save.data.antialiasing;
+					sky.scrollFactor.set(0.1, 0.1);
+					sky.active = false;
+					swagBacks['sky'] = sky;
+					toAdd.push(sky);
+
+					var moss:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENmossidk', 'celeste'));
+					moss.setGraphicSize(Std.int(moss.width * scale));
+					moss.antialiasing = FlxG.save.data.antialiasing;
+					moss.scrollFactor.set(0.5, 0.5);
+					moss.active = false;
+					swagBacks['moss'] = moss;
+					toAdd.push(moss);
+
+					var backspike:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENbackspikes', 'celeste'));
+					backspike.setGraphicSize(Std.int(backspike.width * scale));
+					backspike.antialiasing = FlxG.save.data.antialiasing;
+					backspike.scrollFactor.set(0.7, 0.7);
+					backspike.active = false;
+					swagBacks['backspike'] = backspike;
+					toAdd.push(backspike);
+
+					var pillars:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENpillars', 'celeste'));
+					pillars.setGraphicSize(Std.int(pillars.width * scale));
+					pillars.antialiasing = FlxG.save.data.antialiasing;
+					pillars.scrollFactor.set(0.7, 0.7);
+					pillars.active = false;
+					swagBacks['pillars'] = pillars;
+					toAdd.push(pillars);
+
+					var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENground', 'celeste'));
+					ground.setGraphicSize(Std.int(ground.width * scale));
+					ground.antialiasing = FlxG.save.data.antialiasing;
+					ground.scrollFactor.set(0.9, 0.9);
+					ground.active = false;
+					swagBacks['ground'] = ground;
+					toAdd.push(ground);
+
+					var frontspikes:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENforegroundspikes', 'celeste'));
+					frontspikes.setGraphicSize(Std.int(frontspikes.width * scale));
+					frontspikes.antialiasing = FlxG.save.data.antialiasing;
+					frontspikes.scrollFactor.set(.9, .9);
+					frontspikes.active = false;
+					swagBacks['frontspikes'] = frontspikes;
+					toAdd.push(frontspikes);
 
 				}
 			

@@ -86,6 +86,8 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+	var midsongcutscene:Bool = true;
+
 	public static var instance:PlayState = null;
 
 	public static var SONG:SwagSong;
@@ -192,6 +194,8 @@ class PlayState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camSustains:FlxCamera;
 	public var camNotes:FlxCamera;
+
+	var blackscreen:FlxSprite;
 
 	private var camGame:FlxCamera;
 	public var cannotDie = false;
@@ -595,6 +599,8 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+			blackscreen = new FlxSprite(-FlxG.width * FlxG.camera.zoom, -FlxG.height * FlxG.camera.zoom).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+			blackscreen.scrollFactor.set();
 			camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
 			// REPOSITIONING PER STAGE
@@ -615,20 +621,26 @@ class PlayState extends MusicBeatState
 						dad.y = 202;
 						gf.x = 475;
 						gf.y = 174;
-					case 'reflection':
+					case 'forsaken':
 						boyfriend.x = 810;
 						boyfriend.y = 366;
 						dad.x = -70;
 						dad.y = 202;
 						gf.x = 452;
 						gf.y = 222;
-					case 'forsaken':
+					case 'reflection':
 						boyfriend.x = 1424;
 						boyfriend.y = 643;
 						dad.x = 337;
 						dad.y = 469;
 						gf.x = 1011;
 						gf.y = 377;
+					case 'golden':
+						dad.x = -360;
+						dad.y = 109;
+						gf.y = 2000;
+						boyfriend.x = 1090;
+						boyfriend.y = 333;
 				}
 
 			switch (dad.curCharacter)
@@ -644,9 +656,9 @@ class PlayState extends MusicBeatState
 
 				case "madeline":
 					dad.y += 0;
-				case "badeline":
+				case "badeline" | "badeline-angy":
 					dad.y -= 160;
-				case "pinkeline":
+				case "pinkeline" | "pinkeline-alt":
 					dad.y += 0;
 				case 'dad':
 					camPos.x += 400;
@@ -689,7 +701,7 @@ class PlayState extends MusicBeatState
 						camPos.x += 600;
 						tweenCamIn();
 					}
-				case 'madeline' | 'badeline' | 'pinkeline':
+				case 'madeline' | 'badeline' | 'pinkeline' | 'pinkeline-alt' | 'badeline-angy':
 					camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 			}
 		}
@@ -881,9 +893,9 @@ class PlayState extends MusicBeatState
            {
             	case 'madeline':
              		healthBar.createFilledBar(0xFFEA496A, 0xFF0097C4);
-			  	case 'badeline':
+			  	case 'badeline' | 'badeline-angy':
 					healthBar.createFilledBar(0xFF732762, 0xFF0097C4);
-				case 'pinkeline':
+				case 'pinkeline' | 'pinkeline-alt':
 					healthBar.createFilledBar(0xFFFF77F3, 0xFF0097C4);
         	}
         }
@@ -1130,7 +1142,7 @@ class PlayState extends MusicBeatState
 	function startCountdown():Void
 	{
 		inCutscene = false;
-
+		midsongcutscene == true;
 		appearStaticArrows();
 		//generateStaticArrows(0);
 		//generateStaticArrows(1);
@@ -1428,6 +1440,7 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
+		midsongcutscene == true;
 		startingSong = false;
 		songStarted = true;
 		previousFrameTime = FlxG.game.ticks;
@@ -2015,7 +2028,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		floatshit += 0.03;
-		if (dad.curCharacter == "badeline")
+		if (dad.curCharacter == "badeline" || dad.curCharacter == "badeline-angy")
 			{
             dad.y += Math.sin(floatshit);
        		}
@@ -2651,8 +2664,26 @@ class PlayState extends MusicBeatState
 
 				switch (dad.curCharacter)
 				{
-					case 'madeline' | 'badeline' | 'pinkeline':
-						camFollow.y = dad.getMidpoint().y - 20;
+					case 'madeline' | 'badeline' | 'pinkeline' | 'pinkeline-alt' | 'badeline-angy':
+						if (curSong == 'Golden')
+						{
+							camFollow.x = dad.getMidpoint().x + 350;
+							camFollow.y = dad.getMidpoint().y - 20;
+						}	
+						else
+						{
+							camFollow.y = dad.getMidpoint().y - 20;
+						}
+					case 'pinkeline-alt':
+						if (curSong == 'Golden')
+						{
+							camFollow.x = dad.getMidpoint().x + 350;
+							camFollow.y = dad.getMidpoint().y + 50;
+						}	
+						else
+						{
+							camFollow.y = dad.getMidpoint().y + 50;
+						}
 					case 'mom' | 'mom-car':
 						camFollow.y = dad.getMidpoint().y;
 					case 'senpai' | 'senpai-angry':
@@ -2687,12 +2718,15 @@ class PlayState extends MusicBeatState
 						case 'celestedream':
 							camFollow.x = boyfriend.getMidpoint().x - 150;
 							camFollow.y = boyfriend.getMidpoint().y - 100;
+						case 'reflection':
+							camFollow.x = boyfriend.getMidpoint().x - 150;
+							camFollow.y = boyfriend.getMidpoint().y - 100;
 						case 'forsaken':
 							camFollow.x = boyfriend.getMidpoint().x - 150;
 							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'reflection':
-							camFollow.x = boyfriend.getMidpoint().x - 150;
-							camFollow.y = boyfriend.getMidpoint().y - 98;
+						case 'golden':
+							camFollow.x = boyfriend.getMidpoint().x - 480;
+							camFollow.y = boyfriend.getMidpoint().y - 150;
 					}
 			}
 		}
@@ -3271,6 +3305,7 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		midsongcutscene == false;
 		endingSong = true;
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, releaseInput);
@@ -4553,6 +4588,42 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		if (midsongcutscene)
+			{
+				if (curSong == 'Golden')
+					{
+						switch (curStep)	
+						{
+							case 1151:
+								remove(dad);
+								dad = new Character(-485, -105, 'pinkeline-alt');
+								add(dad);
+						}
+					}
+				if (curSong == 'Forsaken')
+					{
+						switch (curStep)	
+						{
+							case 191:
+								add(blackscreen);
+								badyangy();
+							case 224:
+								new FlxTimer().start(0.03, function(tmr:FlxTimer)
+									{
+										blackscreen.alpha -= 0.15;
+										if (blackscreen.alpha > 0)
+											tmr.reset(0.03);
+										else
+											remove(blackscreen);
+									});
+							case 575:
+								badynotangy();
+							case 860:
+								badyangy();
+						}
+					}
+			}
+
 		if (!PlayStateChangeables.Optimize)
 		{
 			var array = Stage.slowBacks[curStep];
@@ -4590,9 +4661,6 @@ class PlayState extends MusicBeatState
 			luaModchart.setVar('curStep', curStep);
 			luaModchart.executeState('stepHit', [curStep]);
 		}
-
-
-	
 		#end
 	
 	}
@@ -4696,6 +4764,20 @@ class PlayState extends MusicBeatState
 	}
 
 	public var cleanedSong:SwagSong;
+
+	function badyangy() 
+		{
+			remove(dad);
+			dad = new Character(-70, 42, 'badeline-angy');
+			add(dad);
+		}
+	
+	function badynotangy() 
+		{
+			remove(dad);
+			dad = new Character(-70, 42, 'badeline');
+			add(dad);
+		}	
 
 	function poggers(?cleanTheSong = false)
 		{

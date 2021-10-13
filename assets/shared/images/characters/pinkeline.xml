@@ -33,21 +33,21 @@
 	<SubTexture name="madi idle0012" x="2986" y="10" width="487" height="591"/>
 	<SubTexture name="madi idle0013" x="2986" y="10" width="487" height="591"/>
 	<SubTexture name="madi idle0014" x="2986" y="10" width="487" height="591"/>
-	<SubTexture name="madi left0000" x="3483" y="10" width="487" height="577"/>
-	<SubTexture name="madi left0001" x="3483" y="10" width="487" height="577"/>
-	<SubTexture name="madi left0002" x="10" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0003" x="10" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0004" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0005" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0006" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0007" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0008" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0009" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0010" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0011" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0012" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0013" x="507" y="611" width="487" height="577"/>
-	<SubTexture name="madi left0014" x="507" y="611" width="487" height="577"/>
+	<SubTexture name="madi left0000" x="3483" y="10" width="487" height="582"/>
+	<SubTexture name="madi left0001" x="3483" y="10" width="487" height="582"/>
+	<SubTexture name="madi left0002" x="10" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0003" x="10" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0004" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0005" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0006" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0007" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0008" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0009" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0010" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0011" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0012" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0013" x="507" y="611" width="487" height="582"/>
+	<SubTexture name="madi left0014" x="507" y="611" width="487" height="582"/>
 	<SubTexture name="madi right0000" x="1004" y="611" width="495" height="546"/>
 	<SubTexture name="madi right0001" x="1004" y="611" width="495" height="546"/>
 	<SubTexture name="madi right0002" x="1509" y="611" width="495" height="546"/>

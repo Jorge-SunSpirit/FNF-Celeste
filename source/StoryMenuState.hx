@@ -32,7 +32,7 @@ class StoryMenuState extends MusicBeatState
 			['Strawberry'],
 			['Forsaken'],
 			['Forsaken'],
-			['Forsaken']
+			['Golden']
 		];
 	}
 	var curDifficulty:Int = 1;
