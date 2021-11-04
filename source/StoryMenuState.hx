@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['Strawberry'],
-			['Forsaken'],
+			['Reflection'],
 			['Forsaken'],
 			['Golden']
 		];
@@ -135,7 +135,7 @@ class StoryMenuState extends MusicBeatState
 		easy = new FlxSprite(797, 266).loadGraphic(Paths.image('storymenu/easy'));
 		add(easy);
 		//default difficulty is normal so you go down more :)
-		normal = new FlxSprite(932, 286).loadGraphic(Paths.image('storymenu/normal'));
+		normal = new FlxSprite(932, 286).loadGraphic(Paths.image('storymenu/normalglow'));
 		add(normal);
 		hard = new FlxSprite(1067, 266).loadGraphic(Paths.image('storymenu/hard'));
 		add(hard);
@@ -293,17 +293,26 @@ class StoryMenuState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				FlxTween.tween(easy,{y: 286},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(normal,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(hard,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				easy.loadGraphic(Paths.image('storymenu/easyglow'));
+				normal.loadGraphic(Paths.image('storymenu/normal'));
+				hard.loadGraphic(Paths.image('storymenu/hard'));
+				FlxTween.tween(easy,{y: 286},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(normal,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(hard,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
 			case 1:
-				FlxTween.tween(easy,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(normal,{y: 286},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(hard,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				easy.loadGraphic(Paths.image('storymenu/easy'));
+				normal.loadGraphic(Paths.image('storymenu/normalglow'));
+				hard.loadGraphic(Paths.image('storymenu/hard'));
+				FlxTween.tween(easy,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(normal,{y: 286},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(hard,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
 			case 2:
-				FlxTween.tween(easy,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(normal,{y: 266},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
-				FlxTween.tween(hard,{y: 286},0.2,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				easy.loadGraphic(Paths.image('storymenu/easy'));
+				normal.loadGraphic(Paths.image('storymenu/normal'));
+				hard.loadGraphic(Paths.image('storymenu/hardglow'));
+				FlxTween.tween(easy,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(normal,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
+				FlxTween.tween(hard,{y: 286},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
 		}
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}

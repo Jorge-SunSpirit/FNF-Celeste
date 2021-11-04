@@ -181,6 +181,7 @@ class PlayState extends MusicBeatState
 	private var totalNotesHitDefault:Float = 0;
 	private var totalPlayed:Int = 0;
 	private var ss:Bool = false;
+	private var camFocus:Bool = true;
 
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
@@ -2643,92 +2644,95 @@ class PlayState extends MusicBeatState
 			if (luaModchart != null)
 				luaModchart.setVar("mustHit", currentSection.mustHitSection);
 			#end
-
-			if (camFollow.x != dad.getMidpoint().x + 150 && !currentSection.mustHitSection)
-			{
-				var offsetX = 0;
-				var offsetY = 0;
-				#if cpp
-				if (luaModchart != null)
+			if (camFocus)
 				{
-					offsetX = luaModchart.getVar("followXOffset", "float");
-					offsetY = luaModchart.getVar("followYOffset", "float");
-				}
-				#end
-				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
-				#if cpp
-				if (luaModchart != null)
-					luaModchart.executeState('playerTwoTurn', []);
-				#end
-				// camFollow.setPosition(lucky.getMidpoint().x - 120, lucky.getMidpoint().y + 210);
-
-				switch (dad.curCharacter)
-				{
-					case 'madeline' | 'badeline' | 'pinkeline' | 'pinkeline-alt' | 'badeline-angy':
-						if (curSong == 'Golden')
+					if (camFollow.x != dad.getMidpoint().x + 150 && !currentSection.mustHitSection)
 						{
-							camFollow.x = dad.getMidpoint().x + 350;
-							camFollow.y = dad.getMidpoint().y - 20;
-						}	
-						else
-						{
-							camFollow.y = dad.getMidpoint().y - 20;
+							var offsetX = 0;
+							var offsetY = 0;
+							#if cpp
+							if (luaModchart != null)
+							{
+								offsetX = luaModchart.getVar("followXOffset", "float");
+								offsetY = luaModchart.getVar("followYOffset", "float");
+							}
+							#end
+							camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
+							#if cpp
+							if (luaModchart != null)
+								luaModchart.executeState('playerTwoTurn', []);
+							#end
+							// camFollow.setPosition(lucky.getMidpoint().x - 120, lucky.getMidpoint().y + 210);
+			
+							switch (dad.curCharacter)
+							{
+								case 'madeline' | 'badeline' | 'pinkeline' | 'pinkeline-alt' | 'badeline-angy':
+									if (curSong == 'Golden')
+									{
+										camFollow.x = dad.getMidpoint().x + 350;
+										camFollow.y = dad.getMidpoint().y - 20;
+									}	
+									else
+									{
+										camFollow.y = dad.getMidpoint().y - 20;
+									}
+								case 'pinkeline-alt':
+									if (curSong == 'Golden')
+									{
+										camFollow.x = dad.getMidpoint().x + 350;
+										camFollow.y = dad.getMidpoint().y + 50;
+									}	
+									else
+									{
+										camFollow.y = dad.getMidpoint().y + 50;
+									}
+								case 'mom' | 'mom-car':
+									camFollow.y = dad.getMidpoint().y;
+								case 'senpai' | 'senpai-angry':
+									camFollow.y = dad.getMidpoint().y - 430;
+									camFollow.x = dad.getMidpoint().x - 100;
+							}
 						}
-					case 'pinkeline-alt':
-						if (curSong == 'Golden')
+			
+						if (currentSection.mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
 						{
-							camFollow.x = dad.getMidpoint().x + 350;
-							camFollow.y = dad.getMidpoint().y + 50;
-						}	
-						else
-						{
-							camFollow.y = dad.getMidpoint().y + 50;
+							var offsetX = 0;
+							var offsetY = 0;
+							#if cpp
+							if (luaModchart != null)
+							{
+								offsetX = luaModchart.getVar("followXOffset", "float");
+								offsetY = luaModchart.getVar("followYOffset", "float");
+							}
+							#end
+							camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
+			
+							#if cpp
+							if (luaModchart != null)
+								luaModchart.executeState('playerOneTurn', []);
+							#end
+							if (!PlayStateChangeables.Optimize)
+								switch (Stage.curStage)
+								{
+									case 'celeste':
+										camFollow.x = boyfriend.getMidpoint().x - 150;
+										camFollow.y = boyfriend.getMidpoint().y - 100;
+									case 'celestedream':
+										camFollow.x = boyfriend.getMidpoint().x - 150;
+										camFollow.y = boyfriend.getMidpoint().y - 100;
+									case 'reflection':
+										camFollow.x = boyfriend.getMidpoint().x - 150;
+										camFollow.y = boyfriend.getMidpoint().y - 100;
+									case 'forsaken':
+										camFollow.x = boyfriend.getMidpoint().x - 150;
+										camFollow.y = boyfriend.getMidpoint().y - 100;
+									case 'golden':
+										camFollow.x = boyfriend.getMidpoint().x - 480;
+										camFollow.y = boyfriend.getMidpoint().y - 150;
+								}
 						}
-					case 'mom' | 'mom-car':
-						camFollow.y = dad.getMidpoint().y;
-					case 'senpai' | 'senpai-angry':
-						camFollow.y = dad.getMidpoint().y - 430;
-						camFollow.x = dad.getMidpoint().x - 100;
 				}
-			}
-
-			if (currentSection.mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
-			{
-				var offsetX = 0;
-				var offsetY = 0;
-				#if cpp
-				if (luaModchart != null)
-				{
-					offsetX = luaModchart.getVar("followXOffset", "float");
-					offsetY = luaModchart.getVar("followYOffset", "float");
-				}
-				#end
-				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
-
-				#if cpp
-				if (luaModchart != null)
-					luaModchart.executeState('playerOneTurn', []);
-				#end
-				if (!PlayStateChangeables.Optimize)
-					switch (Stage.curStage)
-					{
-						case 'celeste':
-							camFollow.x = boyfriend.getMidpoint().x - 150;
-							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'celestedream':
-							camFollow.x = boyfriend.getMidpoint().x - 150;
-							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'reflection':
-							camFollow.x = boyfriend.getMidpoint().x - 150;
-							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'forsaken':
-							camFollow.x = boyfriend.getMidpoint().x - 150;
-							camFollow.y = boyfriend.getMidpoint().y - 100;
-						case 'golden':
-							camFollow.x = boyfriend.getMidpoint().x - 480;
-							camFollow.y = boyfriend.getMidpoint().y - 150;
-					}
-			}
+			
 		}
 
 		if (camZooming && Conductor.bpm < 320)
@@ -4594,20 +4598,30 @@ class PlayState extends MusicBeatState
 					{
 						switch (curStep)	
 						{
-							case 1151:
+							case 1136:
+								camFocus = false;
+								camZooming = false;
+								Stage.camZoom = 1.5;
+								FlxTween.tween(FlxG.camera, {zoom: 1}, 0.3, {ease: FlxEase.linear});
+								camFollow.x = boyfriend.getMidpoint().x + 50;
+							case 1145:
 								remove(dad);
 								dad = new Character(-485, -105, 'pinkeline-alt');
 								add(dad);
+							case 1151:
+								camFocus = true;
+								camZooming = true;
+								Stage.camZoom = 0.8;
+								FlxTween.tween(FlxG.camera, {zoom: 0.8}, 0.7, {ease: FlxEase.linear});
 						}
 					}
 				if (curSong == 'Forsaken')
 					{
 						switch (curStep)	
 						{
-							case 191:
+							case 479:
 								add(blackscreen);
-								badyangy();
-							case 224:
+							case 608:
 								new FlxTimer().start(0.03, function(tmr:FlxTimer)
 									{
 										blackscreen.alpha -= 0.15;
@@ -4616,9 +4630,7 @@ class PlayState extends MusicBeatState
 										else
 											remove(blackscreen);
 									});
-							case 575:
-								badynotangy();
-							case 860:
+							case 735:
 								badyangy();
 						}
 					}

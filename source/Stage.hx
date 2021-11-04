@@ -223,7 +223,6 @@ class Stage
 					foreground.active = false;
 					swagBacks['foreground'] = foreground;
 					layInFront[2].push(foreground);
-					toAdd.push(foreground);
 				}
 			
 			case 'reflection':
@@ -330,7 +329,7 @@ class Stage
 					frontspikes.scrollFactor.set(.9, .9);
 					frontspikes.active = false;
 					swagBacks['frontspikes'] = frontspikes;
-					toAdd.push(frontspikes);
+					layInFront[2].push(frontspikes);
 
 				}
 			
