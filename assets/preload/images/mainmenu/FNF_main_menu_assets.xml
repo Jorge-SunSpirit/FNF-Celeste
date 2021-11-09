@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Menu stuff.png">
+	<!-- Created with Adobe Animate version 21.0.2.37893 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="climb basic0000" x="10" y="10" width="636" height="162"/>
+	<SubTexture name="climb selected0000" x="656" y="10" width="637" height="176"/>
+	<SubTexture name="credits basic0000" x="1303" y="10" width="705" height="162"/>
+	<SubTexture name="credits selected0000" x="10" y="196" width="829" height="166"/>
+	<SubTexture name="freeplay basic0000" x="849" y="196" width="821" height="162"/>
+	<SubTexture name="freeplay selected0000" x="10" y="372" width="956" height="200"/>
+	<SubTexture name="options basic0000" x="976" y="372" width="732" height="162"/>
+	<SubTexture name="options selected0000" x="10" y="582" width="848" height="143"/>
+</TextureAtlas>

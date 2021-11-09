@@ -105,6 +105,12 @@ class PlayState extends MusicBeatState
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
 
+	public var BFCAM_X:Float = 0;
+	public var BFCAM_Y:Float = 0;
+	public var DADCAM_X:Float = 0;
+	public var DADCAM_Y:Float = 0;
+
+
 	private var floatshit:Float = 0;
 
 	public var boyfriendGroup:FlxSpriteGroup;
@@ -178,6 +184,10 @@ class PlayState extends MusicBeatState
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
+
+	//idk if this will break anything but I'm doin it
+
+	var stageData:StageFile;
 
 	var halloweenBG:BGSprite;
 	var halloweenWhite:BGSprite;
@@ -331,21 +341,28 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		var stageData:StageFile = StageData.getStageFile(curStage);
+		stageData = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
 			stageData = {
 				directory: "",
 				defaultZoom: 0.9,
 				isPixelStage: false,
-			
+				
 				boyfriend: [770, 100],
 				girlfriend: [400, 130],
-				opponent: [100, 100]
+				opponent: [100, 100],
+
+				boyfriend_camera: [0, 0],
+				opponent_camera: [0, 0]
 			};
 		}
 
 		defaultCamZoom = stageData.defaultZoom;
 		isPixelStage = stageData.isPixelStage;
+		BFCAM_X = stageData.boyfriend_camera[0];
+		BFCAM_Y = stageData.boyfriend_camera[1];
+		DADCAM_X = stageData.opponent_camera[0];
+		DADCAM_Y = stageData.opponent_camera[1];
 		BF_X = stageData.boyfriend[0];
 		BF_Y = stageData.boyfriend[1];
 		GF_X = stageData.girlfriend[0];
@@ -2615,6 +2632,15 @@ class PlayState extends MusicBeatState
 					FlxG.camera.zoom += camZoom;
 					camHUD.zoom += hudZoom;
 				}
+			
+			case 'Update DefaultCamZoom':
+				var val1:Float = Std.parseFloat(value1);
+				if(Math.isNaN(val1)) val1 = 0.9;
+
+				if (Math.isNaN(Std.parseFloat(value1)))
+					defaultCamZoom = stageData.defaultZoom;
+				else
+					defaultCamZoom = val1;
 
 			case 'Trigger BG Ghouls':
 				if(curStage == 'schoolEvil' && !ClientPrefs.lowQuality) {
@@ -2784,8 +2810,8 @@ class PlayState extends MusicBeatState
 	public function moveCamera(isDad:Bool) {
 		if(isDad) {
 			camFollow.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-			camFollow.x += dad.cameraPosition[0];
-			camFollow.y += dad.cameraPosition[1];
+			camFollow.x += dad.cameraPosition[0] + DADCAM_X;
+			camFollow.y += dad.cameraPosition[1] + DADCAM_Y;
 			tweenCamIn();
 		} else {
 			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
@@ -2800,8 +2826,9 @@ class PlayState extends MusicBeatState
 					camFollow.x = boyfriend.getMidpoint().x - 200;
 					camFollow.y = boyfriend.getMidpoint().y - 200;
 			}
-			camFollow.x -= boyfriend.cameraPosition[0];
-			camFollow.y += boyfriend.cameraPosition[1];
+
+			camFollow.x -= boyfriend.cameraPosition[0] + BFCAM_X;
+			camFollow.y += boyfriend.cameraPosition[1] + BFCAM_Y;
 
 			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1) {
 				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:

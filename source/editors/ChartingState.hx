@@ -79,7 +79,8 @@ class ChartingState extends MusicBeatState
 		['Screen Shake', "Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.05\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."],
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Add Black Screen', "Blacks out the screen covering everything. Value 1: CurStep to remove"],
-		['Remove Black Screen', "Removes the Black Screen :), Value 1: Tween speed"]
+		['Remove Black Screen', "Removes the Black Screen :), Value 1: Tween speed"],
+		['Update DefaultCamZoom', "Updates the Default Camera Zoom, Value 1: Camera Zoom. Default is 0.9 Leave empty for original CamZoom"]
 	];
 
 	var _file:FileReference;
