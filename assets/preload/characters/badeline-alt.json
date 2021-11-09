@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "badi idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				26,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "badi left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-80,
+				-20
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "badi right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				170
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "badi up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-60,
+				-40
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "badi down",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/badi_sprite_angy",
+	"position": [
+		-110,
+		40
+	],
+	"healthicon": "badeline",
+	"flip_x": false,
+	"healthbar_colors": [
+		155,
+		62,
+		135
+	],
+	"camera_position": [
+		-60,
+		90
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

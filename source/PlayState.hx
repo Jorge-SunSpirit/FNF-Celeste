@@ -105,6 +105,8 @@ class PlayState extends MusicBeatState
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
 
+	private var floatshit:Float = 0;
+
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
@@ -191,6 +193,7 @@ class PlayState extends MusicBeatState
 	var limoKillingState:Int = 0;
 	var frontspikes:FlxSprite;
 	var foreground:FlxSprite;
+	var blackScreen:FlxSprite;
 	var limo:BGSprite;
 	var limoMetalPole:BGSprite;
 	var limoLight:BGSprite;
@@ -1799,8 +1802,14 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.swapOldIcon();
 		}*/
-
+		
 		callOnLuas('onUpdate', [elapsed]);
+
+		floatshit += 0.03;
+		if (dad.curCharacter == "badeline" || dad.curCharacter == "badeline-alt")
+			{
+            dad.y += Math.sin(floatshit);
+       		}
 
 		switch (curStage)
 		{
@@ -2447,6 +2456,30 @@ class PlayState extends MusicBeatState
 					boyfriend.specialAnim = true;
 					boyfriend.heyTimer = time;
 				}
+			
+			case 'Add Black Screen':
+				blackScreen = new FlxSprite(-FlxG.width * FlxG.camera.zoom, -FlxG.height * FlxG.camera.zoom).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+				blackScreen.scrollFactor.set();
+				add(blackScreen);
+			
+			case 'Remove Black Screen':
+				if (blackScreen != null)
+					{
+						var val1:Float = Std.parseFloat(value1);
+						if(Math.isNaN(val1)) val1 = 0;
+
+						if (Math.isNaN(Std.parseFloat(value1))) {
+								remove(blackScreen);
+							}
+						else {
+								FlxTween.tween(blackScreen, {alpha: 0}, val1, {
+									ease: FlxEase.linear,
+									onComplete: function(twn:FlxTween) {
+										remove(blackScreen);
+									}
+								});
+						}
+					}
 
 			case 'Set GF Speed':
 				var value:Int = Std.parseInt(value1);

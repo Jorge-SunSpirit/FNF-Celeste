@@ -160,16 +160,20 @@ class StoryMenuState extends MusicBeatState
 				switch (weekordiff)
 						{
 							case 0:
+								FlxG.sound.play(Paths.sound('scrollMenu'));
 								changeWeek(1);
 							case 1:
+								FlxG.sound.play(Paths.sound('scrollMenu'));
 								changeDifficulty(1);
 						}
 			if (controls.UI_LEFT_P)
 				switch (weekordiff)
 						{
 							case 0:
+								FlxG.sound.play(Paths.sound('scrollMenu'));
 								changeWeek(-1);
 							case 1:
+								FlxG.sound.play(Paths.sound('scrollMenu'));
 								changeDifficulty(-1);
 						}
 
@@ -274,7 +278,6 @@ class StoryMenuState extends MusicBeatState
 				FlxTween.tween(normal,{y: 266},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
 				FlxTween.tween(hard,{y: 286},0.1,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween){}});
 		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	function weekordifficulty(change:Int = 0):Void
@@ -295,7 +298,6 @@ class StoryMenuState extends MusicBeatState
 						leftarrow.y = 170;
 						rightarrow.y = 170;
 				}
-			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 
 	function changeWeek(change:Int = 0):Void
@@ -333,7 +335,6 @@ class StoryMenuState extends MusicBeatState
 					skytween = FlxTween.tween(sky,{x: -485,y: 0},2,{ease: FlxEase.expoOut, onComplete: function(flxTween:FlxTween){}});
 				}
 
-		FlxG.sound.play(Paths.sound('scrollMenu'));
 
 	}
 
