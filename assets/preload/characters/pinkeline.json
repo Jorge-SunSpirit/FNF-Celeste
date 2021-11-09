@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "madi idle"
+		},
+		{
+			"offsets": [
+				100,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "madi left"
+		},
+		{
+			"offsets": [
+				-130,
+				-50
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "madi right"
+		},
+		{
+			"offsets": [
+				30,
+				50
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "madi up"
+		},
+		{
+			"offsets": [
+				50,
+				-50
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "madi down"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pinkeline",
+	"position": [
+		0,
+		170
+	],
+	"healthicon": "pinkeline",
+	"flip_x": false,
+	"healthbar_colors": [
+		235,
+		62,
+		115
+	],
+	"camera_position": [
+		-60,
+		90
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

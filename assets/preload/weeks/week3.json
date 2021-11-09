@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["Forsaken", "badeline", [165, 0, 77]]
+	],
+
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "",
+	"weekBefore": "week1",
+	"weekName": "Madeline",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

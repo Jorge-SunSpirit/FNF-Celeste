@@ -4,8 +4,42 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxSort;
+import Section.SwagSection;
+#if MODS_ALLOWED
+import sys.io.File;
+import sys.FileSystem;
+#end
+import openfl.utils.Assets;
+import haxe.Json;
+import haxe.format.JsonParser;
 
 using StringTools;
+
+typedef CharacterFile = {
+	var animations:Array<AnimArray>;
+	var image:String;
+	var scale:Float;
+	var sing_duration:Float;
+	var healthicon:String;
+
+	var position:Array<Float>;
+	var camera_position:Array<Float>;
+
+	var flip_x:Bool;
+	var no_antialiasing:Bool;
+	var healthbar_colors:Array<Int>;
+}
+
+typedef AnimArray = {
+	var anim:String;
+	var name:String;
+	var fps:Int;
+	var loop:Bool;
+	var indices:Array<Int>;
+	var offsets:Array<Int>;
+}
 
 class Character extends FlxSprite
 {
@@ -13,322 +47,230 @@ class Character extends FlxSprite
 	public var debugMode:Bool = false;
 
 	public var isPlayer:Bool = false;
-	public var curCharacter:String = 'bf';
+	public var curCharacter:String = DEFAULT_CHARACTER;
 
+	public var colorTween:FlxTween;
 	public var holdTimer:Float = 0;
+	public var heyTimer:Float = 0;
+	public var specialAnim:Bool = false;
+	public var animationNotes:Array<Dynamic> = [];
+	public var stunned:Bool = false;
+	public var singDuration:Float = 4; //Multiplier of how long a character holds the sing pose
+	public var idleSuffix:String = '';
+	public var danceIdle:Bool = false; //Character use "danceLeft" and "danceRight" instead of "idle"
 
-	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
+	public var healthIcon:String = 'face';
+	public var animationsArray:Array<AnimArray> = [];
+
+	public var positionArray:Array<Float> = [0, 0];
+	public var cameraPosition:Array<Float> = [0, 0];
+
+	//Used on Character Editor
+	public var imageFile:String = '';
+	public var jsonScale:Float = 1;
+	public var noAntialiasing:Bool = false;
+	public var originalFlipX:Bool = false;
+	public var healthColorArray:Array<Int> = [255, 0, 0];
+	public var alreadyLoaded:Bool = true; //Used by "Change Character" event
+
+	public static var DEFAULT_CHARACTER:String = 'bf'; //In case a character is missing, it will use BF on its place
+	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
 	{
 		super(x, y);
 
+		#if (haxe >= "4.0.0")
+		animOffsets = new Map();
+		#else
 		animOffsets = new Map<String, Array<Dynamic>>();
+		#end
 		curCharacter = character;
 		this.isPlayer = isPlayer;
+		antialiasing = ClientPrefs.globalAntialiasing;
 
-		var tex:FlxAtlasFrames;
-		antialiasing = FlxG.save.data.antialiasing;
-
+		var library:String = null;
 		switch (curCharacter)
 		{
-			case 'gf':
-				// GIRLFRIEND CODE
-				tex = Paths.getSparrowAtlas('GF_assets','shared',true);
-				frames = tex;
-				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
-				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
-				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
-				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
-				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'GF FEAR', 24);
+			//case 'your character name in case you want to hardcode him instead':
 
-				loadOffsetFile(curCharacter);
+			default:
+				var characterPath:String = 'characters/' + curCharacter + '.json';
+				#if MODS_ALLOWED
+				var path:String = Paths.modFolders(characterPath);
+				if (!FileSystem.exists(path)) {
+					path = Paths.getPreloadPath(characterPath);
+				}
 
-				playAnim('danceRight');
+				if (!FileSystem.exists(path))
+				#else
+				var path:String = Paths.getPreloadPath(characterPath);
+				if (!Assets.exists(path))
+				#end
+				{
+					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
+				}
 
-			case 'gf_snow':
-				// GIRLFRIEND CODE
-				tex = Paths.getSparrowAtlas('GF_snow_assets','shared',true);
-				frames = tex;
-				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
-				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
-				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
-				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
-				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
-				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
-				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
-				animation.addByPrefix('scared', 'GF FEAR', 24);
+				#if MODS_ALLOWED
+				var rawJson = File.getContent(path);
+				#else
+				var rawJson = Assets.getText(path);
+				#end
 
-				loadOffsetFile(curCharacter);
+				var json:CharacterFile = cast Json.parse(rawJson);
+				if(Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT))) {
+					frames = Paths.getPackerAtlas(json.image);
+				} else {
+					frames = Paths.getSparrowAtlas(json.image);
+				}
+				imageFile = json.image;
 
-				playAnim('danceRight');
+				if(json.scale != 1) {
+					jsonScale = json.scale;
+					setGraphicSize(Std.int(width * jsonScale));
+					updateHitbox();
+				}
 
+				positionArray = json.position;
+				cameraPosition = json.camera_position;
 
-			case 'dad':
-				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('DADDY_DEAREST','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'Dad idle dance', 24, false);
-				animation.addByPrefix('singUP', 'Dad Sing Note UP', 24, false);
-				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24, false);
-				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24, false);
-				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24, false);
+				healthIcon = json.healthicon;
+				singDuration = json.sing_duration;
+				flipX = !!json.flip_x;
+				if(json.no_antialiasing) {
+					antialiasing = false;
+					noAntialiasing = true;
+				}
 
-				loadOffsetFile(curCharacter);
+				if(json.healthbar_colors != null && json.healthbar_colors.length > 2)
+					healthColorArray = json.healthbar_colors;
 
-				playAnim('idle');
-			case 'bf':
-				var tex = Paths.getSparrowAtlas('BOYFRIEND','shared',true);
-				frames = tex;
+				antialiasing = !noAntialiasing;
+				if(!ClientPrefs.globalAntialiasing) antialiasing = false;
 
-				trace(tex.frames.length);
+				animationsArray = json.animations;
+				if(animationsArray != null && animationsArray.length > 0) {
+					for (anim in animationsArray) {
+						var animAnim:String = '' + anim.anim;
+						var animName:String = '' + anim.name;
+						var animFps:Int = anim.fps;
+						var animLoop:Bool = !!anim.loop; //Bruh
+						var animIndices:Array<Int> = anim.indices;
+						if(animIndices != null && animIndices.length > 0) {
+							animation.addByIndices(animAnim, animName, animIndices, "", animFps, animLoop);
+						} else {
+							animation.addByPrefix(animAnim, animName, animFps, animLoop);
+						}
 
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
-				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
-				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
-				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
-				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
-				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
-				animation.addByPrefix('hey', 'BF HEY', 24, false);
-
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
-				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
-
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-
-				flipX = true;
-			case 'bf_snow':
-				var tex = Paths.getSparrowAtlas('BOYFRIEND_Snow','shared',true);
-				frames = tex;
-
-				trace(tex.frames.length);
-
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
-				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
-				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
-				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
-				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
-				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
-				animation.addByPrefix('hey', 'BF HEY', 24, false);
-
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
-				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
-
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-
-				flipX = true;
-
-			case 'madeline':
-				tex = Paths.getSparrowAtlas('madi_sprite','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'madi idle', 24, false);
-				animation.addByPrefix('singUP', 'madi up', 24, false);
-				animation.addByPrefix('singRIGHT', 'madi right', 24, false);
-				animation.addByPrefix('singDOWN', 'madi down', 24, false);
-				animation.addByPrefix('singLEFT', 'madi left', 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-			
-			case 'badeline':
-				tex = Paths.getSparrowAtlas('badi_sprite','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'badi idle', 24, false);
-				animation.addByPrefix('singUP', 'badi up', 24, false);
-				animation.addByPrefix('singRIGHT', 'badi right', 24, false);
-				animation.addByPrefix('singDOWN', 'badi down', 24, false);
-				animation.addByPrefix('singLEFT', 'badi left', 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-			case 'badeline-angy':
-				tex = Paths.getSparrowAtlas('badi_sprite_angy','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'badi idle angy', 24, false);
-				animation.addByPrefix('singUP', 'badi up angy', 24, false);
-				animation.addByPrefix('singRIGHT', 'badi right angy', 24, false);
-				animation.addByPrefix('singDOWN', 'badi down angy', 24, false);
-				animation.addByPrefix('singLEFT', 'badi left angy', 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-			
-			case 'pinkeline':
-				tex = Paths.getSparrowAtlas('pinkeline','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'madi idle', 24, false);
-				animation.addByPrefix('singUP', 'madi up', 24, false);
-				animation.addByPrefix('singRIGHT', 'madi right', 24, false);
-				animation.addByPrefix('singDOWN', 'madi down', 24, false);
-				animation.addByPrefix('singLEFT', 'madi left', 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-			case 'pinkeline-alt':
-				tex = Paths.getSparrowAtlas('pinkeline_alt','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'madi idle b', 24, false);
-				animation.addByPrefix('singUP', 'madi up b', 24, false);
-				animation.addByPrefix('singRIGHT', 'madi right b', 24, false);
-				animation.addByPrefix('singDOWN', 'madi down b', 24, false);
-				animation.addByPrefix('singLEFT', 'madi left b', 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
+						if(anim.offsets != null && anim.offsets.length > 1) {
+							addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
+						}
+					}
+				} else {
+					quickAnimAdd('idle', 'BF idle dance');
+				}
+				//trace('Loaded file to character ' + curCharacter);
 		}
+		originalFlipX = flipX;
 
+		recalculateDanceIdle();
 		dance();
 
-		if (isPlayer && frames != null)
+		if (isPlayer)
 		{
 			flipX = !flipX;
 
-			// Doesn't flip for BF, since his are already in the right place???
+			/*// Doesn't flip for BF, since his are already in the right place???
 			if (!curCharacter.startsWith('bf'))
 			{
 				// var animArray
-				var oldRight = animation.getByName('singRIGHT').frames;
-				animation.getByName('singRIGHT').frames = animation.getByName('singLEFT').frames;
-				animation.getByName('singLEFT').frames = oldRight;
+				if(animation.getByName('singLEFT') != null && animation.getByName('singRIGHT') != null)
+				{
+					var oldRight = animation.getByName('singRIGHT').frames;
+					animation.getByName('singRIGHT').frames = animation.getByName('singLEFT').frames;
+					animation.getByName('singLEFT').frames = oldRight;
+				}
 
 				// IF THEY HAVE MISS ANIMATIONS??
-				if (animation.getByName('singRIGHTmiss') != null)
+				if (animation.getByName('singLEFTmiss') != null && animation.getByName('singRIGHTmiss') != null)
 				{
 					var oldMiss = animation.getByName('singRIGHTmiss').frames;
 					animation.getByName('singRIGHTmiss').frames = animation.getByName('singLEFTmiss').frames;
 					animation.getByName('singLEFTmiss').frames = oldMiss;
 				}
-			}
-		}
-	}
-
-	public function loadOffsetFile(character:String, library:String = 'shared')
-	{
-		var offset:Array<String> = CoolUtil.coolTextFile(Paths.txt('images/characters/' + character + "Offsets", library));
-
-		for (i in 0...offset.length)
-		{
-			var data:Array<String> = offset[i].split(' ');
-			addOffset(data[0], Std.parseInt(data[1]), Std.parseInt(data[2]));
+			}*/
 		}
 	}
 
 	override function update(elapsed:Float)
 	{
-		if (this != PlayState.boyfriend)
+		if(!debugMode && animation.curAnim != null)
 		{
-			if (animation.curAnim.name.startsWith('sing'))
+			if(heyTimer > 0)
 			{
-				holdTimer += elapsed;
-			}
-
-			if (curCharacter.endsWith('-car') && !animation.curAnim.name.startsWith('sing') && animation.curAnim.finished && animation.getByName('idleHair') != null)
-				playAnim('idleHair');
-
-			var dadVar:Float = 4;
-
-			if (curCharacter == 'dad')
-				dadVar = 6.1;
-			else if (curCharacter == 'gf' || curCharacter == 'gf_snow')
-				dadVar = 4.1; //fix double dances
-			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
-			{
-				if (curCharacter == 'gf' || curCharacter == 'gf_snow')
-					playAnim('danceLeft'); //overridden by dance correctly later
-				dance();
-				holdTimer = 0;
-			}
-		}
-
-		switch (curCharacter)
-		{
-			case 'gf' | 'gf_snow':
-				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
+				heyTimer -= elapsed;
+				if(heyTimer <= 0)
 				{
-					danced = true;
-					playAnim('danceRight');
+					if(specialAnim && animation.curAnim.name == 'hey' || animation.curAnim.name == 'cheer')
+					{
+						specialAnim = false;
+						dance();
+					}
+					heyTimer = 0;
 				}
-		}
+			} else if(specialAnim && animation.curAnim.finished)
+			{
+				specialAnim = false;
+				dance();
+			}
 
+			if (!isPlayer)
+			{
+				if (animation.curAnim.name.startsWith('sing'))
+				{
+					holdTimer += elapsed;
+				}
+
+				if (holdTimer >= Conductor.stepCrochet * 0.001 * singDuration)
+				{
+					dance();
+					holdTimer = 0;
+				}
+			}
+
+			if(animation.curAnim.finished && animation.getByName(animation.curAnim.name + '-loop') != null)
+			{
+				playAnim(animation.curAnim.name + '-loop');
+			}
+		}
 		super.update(elapsed);
 	}
 
-	private var danced:Bool = false;
+	public var danced:Bool = false;
 
 	/**
 	 * FOR GF DANCING SHIT
 	 */
-	public function dance(forced:Bool = false, altAnim:Bool = false)
+	public function dance()
 	{
-		if (!debugMode)
+		if (!debugMode && !specialAnim)
 		{
-			switch (curCharacter)
+			if(danceIdle)
 			{
-				case 'gf' | 'gf_snow':
-					if (!animation.curAnim.name.startsWith('hair') && !animation.curAnim.name.startsWith('sing'))
-					{
-						danced = !danced;
+				danced = !danced;
 
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
-				/*
-				// new dance code is gonna end up cutting off animation with the idle
-				// so here's example code that'll fix it. just adjust it to ya character 'n shit
-				case 'custom character':
-					if (!animation.curAnim.name.endsWith('custom animation'))
-						playAnim('idle');
-				*/
-				default:
-					if (altAnim && animation.getByName('idle-alt') != null)
-						playAnim('idle-alt', forced);
-					else
-						playAnim('idle', forced);
+				if (danced)
+					playAnim('danceRight' + idleSuffix);
+				else
+					playAnim('danceLeft' + idleSuffix);
+			}
+			else if(animation.getByName('idle' + idleSuffix) != null) {
+					playAnim('idle' + idleSuffix);
 			}
 		}
 	}
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
-
-		if (AnimName.endsWith('alt') && animation.getByName(AnimName) == null)
-		{
-			#if debug
-			FlxG.log.warn(['Such alt animation doesnt exist: ' + AnimName]);
-			#end
-			AnimName = AnimName.split('-')[0];
-		}
-
+		specialAnim = false;
 		animation.play(AnimName, Force, Reversed, Frame);
 
 		var daOffset = animOffsets.get(AnimName);
@@ -339,7 +281,7 @@ class Character extends FlxSprite
 		else
 			offset.set(0, 0);
 
-		if (curCharacter == 'gf' || curCharacter == 'gf_snow')
+		if (curCharacter.startsWith('gf'))
 		{
 			if (AnimName == 'singLEFT')
 			{
@@ -357,8 +299,17 @@ class Character extends FlxSprite
 		}
 	}
 
+	public function recalculateDanceIdle() {
+		danceIdle = (animation.getByName('danceLeft' + idleSuffix) != null && animation.getByName('danceRight' + idleSuffix) != null);
+	}
+
 	public function addOffset(name:String, x:Float = 0, y:Float = 0)
 	{
 		animOffsets[name] = [x, y];
+	}
+
+	public function quickAnimAdd(name:String, anim:String)
+	{
+		animation.addByPrefix(name, anim, 24, false);
 	}
 }
