@@ -124,6 +124,9 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+		changeWeek();
+		changeDifficulty();
+
 		super.create();
 	}
 

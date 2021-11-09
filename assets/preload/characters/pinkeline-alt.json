@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "madi idle b"
+			"fps": 24,
+			"name": "madi idle b",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				180,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "madi left b"
+			"fps": 24,
+			"name": "madi left b",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-320,
 				-100
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "madi right b"
+			"fps": 24,
+			"name": "madi right b",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				190
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "madi up b"
+			"fps": 24,
+			"name": "madi up b",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-30,
 				-200
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "madi down b"
+			"fps": 24,
+			"name": "madi down b",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/pinkeline_alt",
 	"position": [
-		-170,
-		-40
+		-180,
+		-60
 	],
 	"healthicon": "pinkeline",
 	"flip_x": false,

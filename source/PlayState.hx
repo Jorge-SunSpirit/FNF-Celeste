@@ -189,6 +189,8 @@ class PlayState extends MusicBeatState
 	var trainSound:FlxSound;
 
 	var limoKillingState:Int = 0;
+	var frontspikes:FlxSprite;
+	var foreground:FlxSprite;
 	var limo:BGSprite;
 	var limoMetalPole:BGSprite;
 	var limoLight:BGSprite;
@@ -432,74 +434,194 @@ class PlayState extends MusicBeatState
 				var posX = -286;
 				var posY = -165;
 
-				
+
 				var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestesky', 'celeste'));
-					sky.setGraphicSize(Std.int(sky.width * scale));
-					sky.antialiasing = FlxG.save.data.antialiasing;
-					sky.scrollFactor.set(0.1, 0.1);
-					sky.active = false;
-					add(sky);
+				sky.setGraphicSize(Std.int(sky.width * scale));
+				sky.antialiasing = FlxG.save.data.antialiasing;
+				sky.scrollFactor.set(0.1, 0.1);
+				sky.active = false;
+				add(sky);
 
-					var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestebridge', 'celeste'));
-					bridge.setGraphicSize(Std.int(bridge.width * 1));
-					bridge.antialiasing = FlxG.save.data.antialiasing;
-					bridge.scrollFactor.set(0.3, 0.3);
-					bridge.active = false;
-					add(bridge);
+				var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestebridge', 'celeste'));
+				bridge.setGraphicSize(Std.int(bridge.width * 1));
+				bridge.antialiasing = FlxG.save.data.antialiasing;
+				bridge.scrollFactor.set(0.3, 0.3);
+				bridge.active = false;
+				add(bridge);
 
-					var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestecity', 'celeste'));
-					city.setGraphicSize(Std.int(city.width * 1));
-					city.antialiasing = FlxG.save.data.antialiasing;
-					city.scrollFactor.set(0.35, 0.35);
-					city.active = false;
-					add(city);
+				var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestecity', 'celeste'));
+				city.setGraphicSize(Std.int(city.width * 1));
+				city.antialiasing = FlxG.save.data.antialiasing;
+				city.scrollFactor.set(0.35, 0.35);
+				city.active = false;
+				add(city);
 
-					var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestetrees', 'celeste'));
-					trees.setGraphicSize(Std.int(trees.width * scale));
-					trees.antialiasing = FlxG.save.data.antialiasing;
-					trees.scrollFactor.set(0.85, 0.9);
-					trees.active = false;
-					add(trees);
+				var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestetrees', 'celeste'));
+				trees.setGraphicSize(Std.int(trees.width * scale));
+				trees.antialiasing = FlxG.save.data.antialiasing;
+				trees.scrollFactor.set(0.85, 0.9);
+				trees.active = false;
+				add(trees);
 
-					var floorback:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestefloorback', 'celeste'));
-					floorback.setGraphicSize(Std.int(floorback.width * scale));
-					floorback.antialiasing = FlxG.save.data.antialiasing;
-					floorback.scrollFactor.set(0.85, 0.9);
-					floorback.active = false;
-					add(floorback);
+				var floorback:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage/celestefloorback', 'celeste'));
+				floorback.setGraphicSize(Std.int(floorback.width * scale));
+				floorback.antialiasing = FlxG.save.data.antialiasing;
+				floorback.scrollFactor.set(0.85, 0.9);
+				floorback.active = false;
+				add(floorback);
 
-					var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stage/celestefloor', 'celeste'));
-					floor.setGraphicSize(Std.int(floor.width * scale));
-					floor.antialiasing = FlxG.save.data.antialiasing;
-					floor.scrollFactor.set(0.9, 0.9);
-					floor.active = false;
-					add(floor);
+				var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stage/celestefloor', 'celeste'));
+				floor.setGraphicSize(Std.int(floor.width * scale));
+				floor.antialiasing = FlxG.save.data.antialiasing;
+				floor.scrollFactor.set(0.9, 0.9);
+				floor.active = false;
+				add(floor);
 
-					var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stage/celestegrave', 'celeste'));
-					grave.setGraphicSize(Std.int(floor.width * scale));
-					grave.antialiasing = FlxG.save.data.antialiasing;
-					grave.scrollFactor.set(1, 1);
-					grave.active = false;
-					add(grave);
+				var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stage/celestegrave', 'celeste'));
+				grave.setGraphicSize(Std.int(floor.width * scale));
+				grave.antialiasing = FlxG.save.data.antialiasing;
+				grave.scrollFactor.set(1, 1);
+				grave.active = false;
+				add(grave);
+			
+			case 'forsaken':
+				var scale = 1.3;
+				var posX = -286;
+				var posY = -165;
+				var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionsky', 'celeste'));
+				sky.setGraphicSize(Std.int(sky.width * scale));
+				sky.antialiasing = FlxG.save.data.antialiasing;
+				sky.scrollFactor.set(0.1, 0.1);
+				sky.active = false;
+				add(sky);
 
+				var stars:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionstars', 'celeste'));
+				stars.setGraphicSize(Std.int(sky.width * scale));
+				stars.antialiasing = FlxG.save.data.antialiasing;
+				stars.scrollFactor.set(0.1, 0.1);
+				stars.active = false;
+				add(stars);
+
+				var inside:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectioninside', 'celeste'));
+				inside.setGraphicSize(Std.int(inside.width * scale));
+				inside.antialiasing = FlxG.save.data.antialiasing;
+				inside.scrollFactor.set(0.85, 0.9);
+				inside.active = false;
+				add(inside);
+
+				var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionground', 'celeste'));
+				ground.setGraphicSize(Std.int(ground.width * scale));
+				ground.antialiasing = FlxG.save.data.antialiasing;
+				ground.scrollFactor.set(0.9, 0.9);
+				ground.active = false;
+				add(ground);
+
+				foreground = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage2/reflectionforeground', 'celeste'));
+				foreground.setGraphicSize(Std.int(foreground.width * scale));
+				foreground.antialiasing = FlxG.save.data.antialiasing;
+				foreground.scrollFactor.set(1, 1);
+				foreground.active = false;
+
+			case 'reflection':
+				var scale = 1.3;
+				var posX = -286;
+				var posY = -165;
+				var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakensky', 'celeste'));
+				sky.setGraphicSize(Std.int(sky.width * scale));
+				sky.antialiasing = FlxG.save.data.antialiasing;
+				sky.scrollFactor.set(0.1, 0.1);
+				sky.active = false;
+				add(sky);
+
+				var bridge:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage3/forsakenbridge', 'celeste'));
+				bridge.setGraphicSize(Std.int(bridge.width * scale));
+				bridge.antialiasing = FlxG.save.data.antialiasing;
+				bridge.scrollFactor.set(0.3, 0.3);
+				bridge.active = false;
+				add(bridge);
+
+				var mountains:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage3/forsakenmountains', 'celeste'));
+				mountains.setGraphicSize(Std.int(mountains.width * scale));
+				mountains.antialiasing = FlxG.save.data.antialiasing;
+				mountains.scrollFactor.set(0.3, 0.3);
+				mountains.active = false;
+				add(mountains);
+
+				var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakenfloor', 'celeste'));
+				ground.setGraphicSize(Std.int(ground.width * scale));
+				ground.antialiasing = FlxG.save.data.antialiasing;
+				ground.scrollFactor.set(0.9, 0.9);
+				ground.active = false;
+				add(ground);
+
+				var grave:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage3/forsakengravestone', 'celeste'));
+				grave.setGraphicSize(Std.int(grave.width * scale));
+				grave.antialiasing = FlxG.save.data.antialiasing;
+				grave.scrollFactor.set(0.85, 0.9);
+				grave.active = false;
+				add(grave);
+			case 'golden':
+				var scale = 1.3;
+				var posX = -286;
+				var posY = -165;
+				var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENsky', 'celeste'));
+				sky.setGraphicSize(Std.int(sky.width * scale));
+				sky.antialiasing = FlxG.save.data.antialiasing;
+				sky.scrollFactor.set(0.1, 0.1);
+				sky.active = false;
+				add(sky);
+
+				var moss:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENmossidk', 'celeste'));
+				moss.setGraphicSize(Std.int(moss.width * scale));
+				moss.antialiasing = FlxG.save.data.antialiasing;
+				moss.scrollFactor.set(0.5, 0.5);
+				moss.active = false;
+				add(moss);
+
+				var backspike:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENbackspikes', 'celeste'));
+				backspike.setGraphicSize(Std.int(backspike.width * scale));
+				backspike.antialiasing = FlxG.save.data.antialiasing;
+				backspike.scrollFactor.set(0.7, 0.7);
+				backspike.active = false;
+				add(backspike);
+
+				var pillars:FlxSprite = new FlxSprite(posX, posY - 50).loadGraphic(Paths.image('stage4/GOLDENpillars', 'celeste'));
+				pillars.setGraphicSize(Std.int(pillars.width * scale));
+				pillars.antialiasing = FlxG.save.data.antialiasing;
+				pillars.scrollFactor.set(0.7, 0.7);
+				pillars.active = false;
+				add(pillars);
+
+				var ground:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENground', 'celeste'));
+				ground.setGraphicSize(Std.int(ground.width * scale));
+				ground.antialiasing = FlxG.save.data.antialiasing;
+				ground.scrollFactor.set(0.9, 0.9);
+				ground.active = false;
+				add(ground);
+
+				frontspikes = new FlxSprite(posX, posY).loadGraphic(Paths.image('stage4/GOLDENforegroundspikes', 'celeste'));
+				frontspikes.setGraphicSize(Std.int(frontspikes.width * scale));
+				frontspikes.antialiasing = FlxG.save.data.antialiasing;
+				frontspikes.scrollFactor.set(.9, .9);
+				frontspikes.active = false;
 		}
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
 		}
 
-		add(gfGroup);
-
-		// Shitty layering but whatev it works LOL
-		if (curStage == 'limo')
-			add(limo);
-
+		if(curStage != 'golden')
+			{
+				add(gfGroup);
+			}	
 		add(dadGroup);
 		add(boyfriendGroup);
-		
-		if(curStage == 'spooky') {
-			add(halloweenWhite);
-		}
+
+		// Shitty layering but whatev it works LOL
+		if (curStage == 'golden')
+			add(frontspikes);
+		if (curStage == 'forsaken')
+			add(foreground);
 
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
