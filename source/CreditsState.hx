@@ -61,7 +61,21 @@ class CreditsState extends MusicBeatState
 		}
 		
 		#end
-		var pisspoop = [ //Name - Icon name - Description - Link - BG Color
+		var pisspoop = [ //Name - Icon name - Description - Link - BG Color			['',		'',		'',					'',	''],
+		['FNF Cliff Clash Dev Team'],
+		['AutidRoll',		'atuid',		'Main Artist, Animator, and Concept Artist',					'https://twitter.com/AutidRoll716',	'0xFF2F10AB'],
+		['Ito',		'itoicon',		'Main Background Artist and made Additional Art',					'https://twitter.com/ItoSaihara_',	'0xFFD42B52'],
+		['SirDusterBuster',		'DootIcon',		'Art for Dialogue Portraits',					'https://twitter.com/SirDusterBuster',	'0xFFA1D8EC'],
+		['KaosKurve',		'iconkaos',		'Logo and Promo Artist',					'https://twitter.com/KaoskurveA',	'0xFFF2D182'],
+		['ClemO',		'clemoicon',		'Composer',					'https://twitter.com/ClemO___O',	'0xFFBBABD2'],
+		['Whoopz',		'whoopzicon',		'Composer and Charting',					'https://twitter.com/WhoopzGuy',	'0xFFB54FDB'],
+		['Saruky',		'saru',		'Composer',					'https://twitter.com/Saruky__',	'0xFFFD1D66'],
+		['Jam',		'jam',		'Created the Chromatic Scales',					'https://twitter.com/jam_pizza',	'0xFFDC5285'],
+		['Jorge - Sun Spirit',		'SauseIcon',		'Main Programmer',					'https://twitter.com/Jorge_SunSpirit',	'0xFFDB8B2E'],
+		['Breezy',		'iconbreezy',		'Additional Programming',					'https://twitter.com/BreezyMelee',	'0xFF6E56A0'],
+		['Degen Dan',		'dan',		'Charting',					'https://www.youtube.com/c/DegenDan/videos',	'0xFF71F6FF'],
+
+
 		['Psych Engine Team'],
 		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	'0xFFFFDD33'],
 		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/river_oaken',		'0xFFC30085'],
@@ -150,8 +164,11 @@ class CreditsState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
-		if(controls.ACCEPT) {
+		if(controls.ACCEPT && !FlxG.keys.pressed.G) {
 			CoolUtil.browserLoad(creditsStuff[curSelected][3]);
+		}
+		if(controls.ACCEPT && FlxG.keys.pressed.G && curSelected == 9) {
+			CoolUtil.browserLoad("https://www.youtube.com/watch?v=0MW9Nrg_kZU");
 		}
 		super.update(elapsed);
 	}
