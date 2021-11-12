@@ -74,7 +74,7 @@ class CreditsState extends MusicBeatState
 		['Jorge - Sun Spirit',		'SauseIcon',		'Main Programmer',					'https://twitter.com/Jorge_SunSpirit',	'0xFFDB8B2E'],
 		['Breezy',		'iconbreezy',		'Additional Programming',					'https://twitter.com/BreezyMelee',	'0xFF6E56A0'],
 		['Degen Dan',		'dan',		'Charting',					'https://www.youtube.com/c/DegenDan/videos',	'0xFF71F6FF'],
-
+		[''],
 
 		['Psych Engine Team'],
 		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	'0xFFFFDD33'],
