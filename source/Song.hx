@@ -37,6 +37,7 @@ class Song
 	public var bpm:Float;
 	public var needsVoices:Bool = true;
 	public var arrowSkin:String;
+	public var arrowSkinDad:String;
 	public var splashSkin:String;
 	public var speed:Float = 1;
 	public var stage:String;

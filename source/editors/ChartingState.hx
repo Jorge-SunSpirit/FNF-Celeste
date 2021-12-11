@@ -80,7 +80,11 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Add Black Screen', "Blacks out the screen covering everything. Value 1: CurStep to remove"],
 		['Remove Black Screen', "Removes the Black Screen :), Value 1: Tween speed"],
-		['Update DefaultCamZoom', "Updates the Default Camera Zoom, Value 1: Camera Zoom. Default is 0.9 Leave empty for original CamZoom"]
+		['Ready', "Countdown Ready!"],
+		['Set', "Countdown Set!"],
+		['Go', "Countdown GO!"],
+		['Update DefaultCamZoom', "Updates the Default Camera Zoom, Value 1: Camera Zoom. Default is 0.9 Leave empty for original CamZoom"],
+		['Flip Notes', "It just flips the notes"]
 	];
 
 	var _file:FileReference;
