@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "madi idle b",
-			"indices": []
+			"indices": [],
+			"name": "madi idle b"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				180,
-				0
+				188,
+				-9
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "madi left b",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "madi left b"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-320,
 				-100
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "madi right b",
-			"indices": []
+			"indices": [],
+			"name": "madi right b"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				190
+				4,
+				186
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "madi up b",
-			"indices": []
+			"indices": [],
+			"name": "madi up b"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-30,
-				-200
+				-23,
+				-204
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "madi down b",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "madi down b"
 		}
 	],
 	"no_antialiasing": false,
