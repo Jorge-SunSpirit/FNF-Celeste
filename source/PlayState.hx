@@ -1187,7 +1187,7 @@ class PlayState extends MusicBeatState
 			}
 			black.scrollFactor.set();
 
-			add(black);
+			//add(black); why is this here :sob:
 			CoolUtil.precacheSound('dialogue');
 			CoolUtil.precacheSound('dialogueClose');
 			var doof:DialogueBoxPsych = new DialogueBoxPsych(dialogueFile, song);

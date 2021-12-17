@@ -1,0 +1,67 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "1",
+			"text": "Bap!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "angry",
+			"expression": "2",
+			"text": "Oh, hi there. Are you here to climb\\nthe mountain\"?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": "No, me and my girlfriend were just\\nhere for a late night hike."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": ". . .but I was wondering if you'd like\\nto sing with me\"?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": "I heard your voice when you were\\n2ing to that old woman . . ."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": ". . . and your voice sounds amazing!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "angry",
+			"expression": "2",
+			"text": "Oh, uhh. . . sure. Iguess I could\\nsing, if you'd like."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": "Great, let's go!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "slides",
+			"boxState": "normal",
+			"expression": "2",
+			"text": "coolswag"
+		}
+	]
+}

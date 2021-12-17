@@ -1,0 +1,128 @@
+{
+	"dialogue_pos": "right",
+	"position": [
+		-130,
+		-240
+	],
+	"scale": 1,
+	"animations": [
+		{
+			"loop_name": "A",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "A",
+			"anim": "1",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "B",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "B",
+			"anim": "2",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "C",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "C",
+			"anim": "3",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "D",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "D",
+			"anim": "4",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "E",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "E",
+			"anim": "5",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "F",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "F",
+			"anim": "6",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "G",
+			"idle_offsets": [
+				50,
+				0
+			],
+			"idle_name": "G",
+			"anim": "7",
+			"loop_offsets": [
+				50,
+				0
+			]
+		},
+		{
+			"loop_name": "H",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "H",
+			"anim": "8",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "I",
+			"idle_offsets": [
+				50,
+				0
+			],
+			"idle_name": "I",
+			"anim": "9",
+			"loop_offsets": [
+				50,
+				0
+			]
+		}
+	],
+	"image": "slides"
+}

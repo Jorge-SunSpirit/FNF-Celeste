@@ -193,19 +193,19 @@ class DialogueBoxPsych extends FlxSpriteGroup
 
 		this.dialogueList = dialogueList;
 		spawnCharacters();
-
+		//new dialogue boxes 
 		box = new FlxSprite(70, 370);
 		box.frames = Paths.getSparrowAtlas('speech_bubble');
 		box.scrollFactor.set();
 		box.antialiasing = ClientPrefs.globalAntialiasing;
-		box.animation.addByPrefix('normal', 'speech bubble normal', 24);
-		box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
-		box.animation.addByPrefix('angry', 'AHH speech bubble', 24);
-		box.animation.addByPrefix('angryOpen', 'speech bubble loud open', 24, false);
-		box.animation.addByPrefix('center-normal', 'speech bubble middle', 24);
-		box.animation.addByPrefix('center-normalOpen', 'Speech Bubble Middle Open', 24, false);
-		box.animation.addByPrefix('center-angry', 'AHH Speech Bubble middle', 24);
-		box.animation.addByPrefix('center-angryOpen', 'speech bubble Middle loud open', 24, false);
+		box.animation.addByPrefix('normal', 'bf', 24);
+		box.animation.addByPrefix('normalOpen', 'bf', 24, false);
+		box.animation.addByPrefix('angry', 'gf', 24);
+		box.animation.addByPrefix('angryOpen', 'gf', 24, false);
+		box.animation.addByPrefix('center-normal', 'madi', 24);
+		box.animation.addByPrefix('center-normalOpen', 'madi', 24, false);
+		box.animation.addByPrefix('center-angry', 'badi', 24);
+		box.animation.addByPrefix('center-angryOpen', 'badi', 24, false);
 		box.animation.play('normal', true);
 		box.visible = false;
 		box.setGraphicSize(Std.int(box.width * 0.9));
@@ -269,9 +269,9 @@ class DialogueBoxPsych extends FlxSpriteGroup
 			arrayCharacters.push(char);
 		}
 	}
-
-	public static var DEFAULT_TEXT_X = 90;
-	public static var DEFAULT_TEXT_Y = 430;
+	//Text now goes up cus looks better with the slides lol
+	public static var DEFAULT_TEXT_X = 250;
+	public static var DEFAULT_TEXT_Y = 10;
 	var scrollSpeed = 4500;
 	var daText:Alphabet = null;
 	var ignoreThisFrame:Bool = true; //First frame is reserved for loading dialogue images
@@ -516,16 +516,18 @@ class DialogueBoxPsych extends FlxSpriteGroup
 		#end
 		return cast Json.parse(rawJson);
 	}
-
+	//new offsets for the 4 dialogue boxes
 	public static function updateBoxOffsets(box:FlxSprite) { //Had to make it static because of the editors
 		box.centerOffsets();
 		box.updateHitbox();
-		if(box.animation.curAnim.name.startsWith('angry')) {
-			box.offset.set(50, 65);
-		} else if(box.animation.curAnim.name.startsWith('center-angry')) {
-			box.offset.set(50, 30);
+		if(box.animation.curAnim.name.startsWith('normal')) {
+			box.offset.set(30, 445-10);
+		} else if(box.animation.curAnim.name.startsWith('angry')) {
+			box.offset.set(30, 445-10);
+		} else  if(box.animation.curAnim.name.startsWith('center-normal')) {
+			box.offset.set(30, 445-37);
 		} else {
-			box.offset.set(10, 0);
+			box.offset.set(30, 455-40);
 		}
 		
 		if(!box.flipX) box.offset.y += 10;

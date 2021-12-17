@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="slides.png">
+	<!-- Made with Sprite cow lol -->
+	<SubTexture name="A0000" x="0" y="0" width="1920" height="1080"/>
+	<SubTexture name="B0000" x="2103" y="0" width="1920" height="1080"/>
+	<SubTexture name="C0000" x="4170" y="0" width="1920" height="1080"/>
+	<SubTexture name="D0000" x="0" y="1110" width="1920" height="1080"/>
+	<SubTexture name="E0000" x="2103" y="1110" width="1920" height="1080"/>
+	<SubTexture name="F0000" x="4170" y="1110" width="1920" height="1080"/>
+	<SubTexture name="G0000" x="0" y="2200" width="1920" height="1080"/>
+	<SubTexture name="H0000" x="2103" y="2200" width="1920" height="1080"/>
+	<SubTexture name="I0000" x="4170" y="2200" width="1920" height="1080"/>
+</TextureAtlas>
