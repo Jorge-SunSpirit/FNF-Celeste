@@ -55,13 +55,6 @@
 			"boxState": "normal",
 			"expression": "2",
 			"text": "Great, let's go!"
-		},
-		{
-			"speed": 0.05,
-			"portrait": "slides",
-			"boxState": "normal",
-			"expression": "2",
-			"text": "coolswag"
 		}
 	]
 }
