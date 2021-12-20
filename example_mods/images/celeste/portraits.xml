@@ -2,6 +2,8 @@
 <TextureAtlas imagePath="portraits.png">
 	<!-- Made with spritecow and mura's hands -->
 
+	<SubTexture name="none0000" x="0" y="0" width="10" height="10"/>
+
 	<!--Madi's Expressions-->
 
 	<!--Madi normal-->
@@ -176,5 +178,83 @@
 	<SubTexture name="BE0014" x="1347" y="545" width="160" height="160"/>
 	<SubTexture name="BE0015" x="1347" y="545" width="160" height="160"/>
 	<SubTexture name="BE0016" x="1347" y="545" width="160" height="160"/>
+
+	<!--BF portraits-->
+
+	<!-- Bf Normal-->
+	<SubTexture name="BFA0000" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0001" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0002" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0003" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0004" x="1941" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0005" x="1941" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0006" x="1941" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0007" x="1941" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0008" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0009" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0010" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0011" x="2111" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0012" x="2281" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0013" x="2281" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0014" x="2281" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0015" x="2281" y="10" width="160" height="160"/>
+	<SubTexture name="BFA0016" x="2281" y="10" width="160" height="160"/>
+
+	<!-- Bf Excited-->
+	<SubTexture name="BFB0000" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0001" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0002" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0003" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0004" x="1941" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0005" x="1941" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0006" x="1941" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0007" x="1941" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0008" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0009" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0010" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0011" x="2111" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0012" x="2281" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0013" x="2281" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0014" x="2281" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0015" x="2281" y="181" width="160" height="160"/>
+	<SubTexture name="BFB0016" x="2281" y="181" width="160" height="160"/>
+
+	<!-- Bf Confused-->
+	<SubTexture name="BFC0000" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0001" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0002" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0003" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0004" x="1941" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0005" x="1941" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0006" x="1941" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0007" x="1941" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0008" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0009" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0010" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0011" x="2111" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0012" x="2281" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0013" x="2281" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0014" x="2281" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0015" x="2281" y="374" width="160" height="160"/>
+	<SubTexture name="BFC0016" x="2281" y="374" width="160" height="160"/>
+
+	<!-- Bf Angry-->
+	<SubTexture name="BFD0000" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0001" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0002" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0003" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0004" x="1941" y="544" width="160" height="160"/>
+	<SubTexture name="BFD0005" x="1941" y="544" width="160" height="160"/>
+	<SubTexture name="BFD0006" x="1941" y="544" width="160" height="160"/>
+	<SubTexture name="BFD0007" x="1941" y="544" width="160" height="160"/>
+	<SubTexture name="BFD0008" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0009" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0010" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0011" x="2111" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0012" x="2281" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0013" x="2281" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0014" x="2281" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0015" x="2281" y="545" width="160" height="160"/>
+	<SubTexture name="BFD0016" x="2281" y="545" width="160" height="160"/>
 
 </TextureAtlas>

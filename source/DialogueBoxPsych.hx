@@ -487,6 +487,14 @@ class DialogueBoxPsych extends FlxSpriteGroup
 			daText.destroy();
 		}
 
+		if(box.animation.curAnim.name.startsWith('angry')) {
+			DEFAULT_TEXT_X = 250;
+		} else if(box.animation.curAnim.name.startsWith('center-normal')) {
+			DEFAULT_TEXT_X = 250;
+		} else {
+			DEFAULT_TEXT_X = 140;
+		}
+
 		textToType = curDialogue.text;
 		daText = new Alphabet(DEFAULT_TEXT_X, DEFAULT_TEXT_Y, textToType, false, true, curDialogue.speed, 0.7);
 		add(daText);
