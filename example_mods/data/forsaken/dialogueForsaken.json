@@ -66,8 +66,8 @@
 		{
 			"speed": 0.05,
 			"portrait": "slides2",
-			"boxState": "7",
-			"expression": "talk",
+			"boxState": "normal",
+			"expression": "7",
 			"text": "Maybe you should just stop \\nbothering her and go away."
 		},
 		{
