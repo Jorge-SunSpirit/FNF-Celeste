@@ -496,7 +496,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 		}
 
 		textToType = curDialogue.text;
-		daText = new Alphabet(DEFAULT_TEXT_X, DEFAULT_TEXT_Y, textToType, false, true, curDialogue.speed, 0.7);
+		daText = new Alphabet(DEFAULT_TEXT_X, DEFAULT_TEXT_Y, textToType, false, true, curDialogue.speed, 0.7, box.animation.curAnim.name);
 		add(daText);
 
 		var char:DialogueCharacter = arrayCharacters[character];
@@ -535,7 +535,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 		} else  if(box.animation.curAnim.name.startsWith('center-normal')) {
 			box.offset.set(30, 445-37);
 		} else {
-			box.offset.set(30, 455-40);
+			box.offset.set(7, 455-40);
 		}
 		
 		if(!box.flipX) box.offset.y += 10;

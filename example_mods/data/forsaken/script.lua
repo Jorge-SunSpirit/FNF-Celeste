@@ -1,7 +1,7 @@
 local allowCountdown = false;
 local idk = false;
-local left = {'MA', 'NONE', 'NONE', 'NONE', 'NONE', 'MC', 'NONE'};
-local right = {'NONE', 'A', 'A', 'A', 'A', 'NONE', 'A'};
+local left = {'NONE', 'BD', 'NONE', 'BE', 'BB', 'BB', 'NONE', 'NONE', 'BA', 'MB', 'BC', 'NONE', 'BB', 'NONE'};
+local right = {'GB', 'NONE', 'B', 'NONE', 'NONE', 'NONE', 'C', 'C', 'NONE', 'NONE', 'NONE', 'D', 'NONE', 'D'};
 
 function onCreate()
 	makeLuaSprite('no', 'celeste/void2', 0, 0);
@@ -33,12 +33,16 @@ end
 
 function onTimerCompleted(tag, loops, loopsLeft)
 	if tag == 'startDialogue' then 
-		startDialogue('dialogueStrawberry','madeline_ambience_loop');
+		startDialogue('dialogueForsaken','Badeline_ambience_buildup_loop');
 		makeAnimatedLuaSprite('portraits', 'celeste/portraits', 215, 85);
-		addAnimationByPrefix('portraits', 'MA', 'MA', 8, false);
+		addAnimationByPrefix('portraits', 'BA', 'BA', 8, false);
+		addAnimationByPrefix('portraits', 'BB', 'BB', 8, false);
+		addAnimationByPrefix('portraits', 'BC', 'BC', 8, false);
+		addAnimationByPrefix('portraits', 'BD', 'BD', 8, false);
+		addAnimationByPrefix('portraits', 'BE', 'BE', 8, false);
+
 		addAnimationByPrefix('portraits', 'MB', 'MB', 8, false);
-		addAnimationByPrefix('portraits', 'MC', 'MC', 8, false);
-		addAnimationByPrefix('portraits', 'MD', 'MD', 8, false);
+
 		addAnimationByPrefix('portraits', 'NONE', 'none', 8, false);
 		setObjectCamera('portraits', 'camHud');
 		scaleObject('portraits', 0.65, 0.65);
@@ -50,12 +54,14 @@ function onTimerCompleted(tag, loops, loopsLeft)
 		addAnimationByPrefix('portraits2', 'B', 'BFB', 8, false);
 		addAnimationByPrefix('portraits2', 'C', 'BFC', 8, false);
 		addAnimationByPrefix('portraits2', 'D', 'BFD', 8, false);
+		addAnimationByPrefix('portraits2', 'GA', 'GFA', 8, false);
+		addAnimationByPrefix('portraits2', 'GB', 'GFB', 8, false);
 		setObjectCamera('portraits2', 'camHud');
 		scaleObject('portraits2', 0.65, 0.65);
 		addLuaSprite('portraits2', true);
 
 		objectPlayAnimation('portraits', 'NONE', true);
-		objectPlayAnimation('portraits2', 'B', true);
+		objectPlayAnimation('portraits2', 'C', true);
 	end
 end
 

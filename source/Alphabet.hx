@@ -46,8 +46,18 @@ class Alphabet extends FlxSpriteGroup
 	public var typed:Bool = false;
 
 	public var typingSpeed:Float = 0.05;
-	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = false, typed:Bool = false, ?typingSpeed:Float = 0.05, ?textSize:Float = 1)
+	public var charbox:String = "";
+	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = false, typed:Bool = false, ?typingSpeed:Float = 0.05, ?textSize:Float = 1, ?char:String = "")
 	{
+		if(char.startsWith('normal')) {
+			charbox = 'bf';
+		} else if(char.startsWith('angry')) {
+			charbox = 'maddy';
+		} else  if(char.startsWith('center-normal')) {
+			charbox = 'badeline';
+		} else {
+			charbox = 'gf';
+		}
 		super(x, y);
 		forceX = Math.NEGATIVE_INFINITY;
 		this.textSize = textSize;
@@ -211,7 +221,7 @@ class Alphabet extends FlxSpriteGroup
 				timerCheck();
 			}
 			if(dialogueSound != null) dialogueSound.stop();
-			dialogueSound = FlxG.sound.play(Paths.sound('dialogue'));
+			dialogueSound = FlxG.sound.play(Paths.sound(charbox));
 		} else {
 			typeTimer = new FlxTimer().start(0.1, function(tmr:FlxTimer) {
 				typeTimer = new FlxTimer().start(speed, function(tmr:FlxTimer) {
@@ -309,7 +319,7 @@ class Alphabet extends FlxSpriteGroup
 
 				if(tmr != null) {
 					if(dialogueSound != null) dialogueSound.stop();
-					dialogueSound = FlxG.sound.play(Paths.sound('dialogue'));
+					dialogueSound = FlxG.sound.play(Paths.sound(charbox));
 				}
 
 				add(letter);

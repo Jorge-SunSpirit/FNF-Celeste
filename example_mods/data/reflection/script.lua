@@ -1,7 +1,7 @@
 local allowCountdown = false;
 local idk = false;
-local left = {'MA', 'NONE', 'NONE', 'NONE', 'NONE', 'MC', 'NONE'};
-local right = {'NONE', 'A', 'A', 'A', 'A', 'NONE', 'A'};
+local left = {'MA', 'NONE', 'NONE', 'NONE', 'MA', 'NONE', 'MD'};
+local right = {'NONE', 'GA', 'GA', 'B', 'NONE', 'B', 'NONE'};
 
 function onCreate()
 	makeLuaSprite('no', 'celeste/void2', 0, 0);
@@ -33,7 +33,7 @@ end
 
 function onTimerCompleted(tag, loops, loopsLeft)
 	if tag == 'startDialogue' then 
-		startDialogue('dialogueStrawberry','madeline_ambience_loop');
+		startDialogue('dialogueReflection','madeline_ambience_loop');
 		makeAnimatedLuaSprite('portraits', 'celeste/portraits', 215, 85);
 		addAnimationByPrefix('portraits', 'MA', 'MA', 8, false);
 		addAnimationByPrefix('portraits', 'MB', 'MB', 8, false);
@@ -50,6 +50,8 @@ function onTimerCompleted(tag, loops, loopsLeft)
 		addAnimationByPrefix('portraits2', 'B', 'BFB', 8, false);
 		addAnimationByPrefix('portraits2', 'C', 'BFC', 8, false);
 		addAnimationByPrefix('portraits2', 'D', 'BFD', 8, false);
+		addAnimationByPrefix('portraits2', 'GA', 'GFA', 8, false);
+		addAnimationByPrefix('portraits2', 'GB', 'GFB', 8, false);
 		setObjectCamera('portraits2', 'camHud');
 		scaleObject('portraits2', 0.65, 0.65);
 		addLuaSprite('portraits2', true);

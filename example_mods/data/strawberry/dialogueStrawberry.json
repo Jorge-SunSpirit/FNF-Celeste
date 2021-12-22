@@ -33,7 +33,7 @@
 			"portrait": "slides",
 			"boxState": "normal",
 			"expression": "2",
-			"text": "I heard your voice when you were\\n2ing to that old woman . . ."
+			"text": "I heard your voice when you were\\nsinging to that old woman . . ."
 		},
 		{
 			"speed": 0.05,
@@ -47,7 +47,7 @@
 			"portrait": "slides",
 			"boxState": "angry",
 			"expression": "2",
-			"text": "Oh, uhh. . . sure. Iguess I could\\nsing, if you'd like."
+			"text": "Oh, uhh. . . sure. I guess I could\\nsing, if you'd like."
 		},
 		{
 			"speed": 0.05,
