@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "madi idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				111,
+				-6
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "madi left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-72,
+				-48
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "madi right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				43,
+				26
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "madi up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-26,
+				-65
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "madi down",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/CATELINE",
+	"position": [
+		0,
+		200
+	],
+	"healthicon": "madeline",
+	"flip_x": false,
+	"healthbar_colors": [
+		235,
+		62,
+		115
+	],
+	"camera_position": [
+		-60,
+		90
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

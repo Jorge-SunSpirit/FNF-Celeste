@@ -512,6 +512,61 @@ class PlayState extends MusicBeatState
 				grave.active = false;
 				add(grave);
 			
+			case 'celeste_dream':
+				var scale = 1.3;
+				var posX = -286;
+				var posY = -165;
+
+
+				var sky:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamsky', 'celeste'));
+				sky.setGraphicSize(Std.int(sky.width * scale));
+				sky.antialiasing = ClientPrefs.globalAntialiasing;
+				sky.scrollFactor.set(0.1, 0.1);
+				sky.active = false;
+				add(sky);
+
+				var stars:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamstars', 'celeste'));
+				stars.setGraphicSize(Std.int(stars.width * scale));
+				stars.antialiasing = ClientPrefs.globalAntialiasing;
+				stars.scrollFactor.set(0.1, 0.1);
+				stars.active = false;
+				add(stars);
+
+				var bridge:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreambridge', 'celeste'));
+				bridge.setGraphicSize(Std.int(bridge.width * 1));
+				bridge.antialiasing = ClientPrefs.globalAntialiasing;
+				bridge.scrollFactor.set(0.3, 0.3);
+				bridge.active = false;
+				add(bridge);
+
+				var city:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamcity', 'celeste'));
+				city.setGraphicSize(Std.int(city.width * 1));
+				city.antialiasing = ClientPrefs.globalAntialiasing;
+				city.scrollFactor.set(0.35, 0.35);
+				city.active = false;
+				add(city);
+
+				var trees:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('stagedream/dreamtrees', 'celeste'));
+				trees.setGraphicSize(Std.int(trees.width * scale));
+				trees.antialiasing = ClientPrefs.globalAntialiasing;
+				trees.scrollFactor.set(0.85, 0.9);
+				trees.active = false;
+				add(trees);
+
+				var floor:FlxSprite = new FlxSprite(posX + 20, posY).loadGraphic(Paths.image('stagedream/dreamfloor', 'celeste'));
+				floor.setGraphicSize(Std.int(floor.width * scale));
+				floor.antialiasing = ClientPrefs.globalAntialiasing;
+				floor.scrollFactor.set(0.9, 0.9);
+				floor.active = false;
+				add(floor);
+
+				var grave:FlxSprite = new FlxSprite(posX - 10, posY).loadGraphic(Paths.image('stagedream/dreamgrave', 'celeste'));
+				grave.setGraphicSize(Std.int(floor.width * scale));
+				grave.antialiasing = ClientPrefs.globalAntialiasing;
+				grave.scrollFactor.set(1, 1);
+				grave.active = false;
+				add(grave);
+			
 			case 'forsaken':
 				var scale = 1.3;
 				var posX = -286;
