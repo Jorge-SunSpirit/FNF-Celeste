@@ -4,10 +4,12 @@ local left = {'MA', 'NONE', 'NONE', 'NONE', 'NONE', 'MC', 'NONE'};
 local right = {'NONE', 'A', 'A', 'A', 'A', 'NONE', 'A'};
 
 function onCreate()
-	makeLuaSprite('no', 'celeste/void2', 0, 0);
-	setObjectCamera('no', 'camHud');
-	scaleObject('no', 1280/200, 720/200);
-	addLuaSprite('no', true);
+	if isStoryMode then
+		makeLuaSprite('no', 'celeste/void2', 0, 0);
+		setObjectCamera('no', 'camHud');
+		scaleObject('no', 1280/200, 720/200);
+		addLuaSprite('no', true);
+	end
 
 	makeLuaSprite('void2', 'celeste/void2', 0, 0);
 	setObjectCamera('void2', 'camHud');
